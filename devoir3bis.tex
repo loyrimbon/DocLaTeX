@@ -1,0 +1,166 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+%\usepackage{mathsfs}
+
+%\title{Devoir 1 de Mathématiques}
+%\author{\textsc{RIMBON} Loy}
+%\date{\today}
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\newcounter{exercice}
+\setcounter{exercice}{3}
+\newcommand{\exercice}{%
+	\refstepcounter{exercice}%
+	\bigskip
+	\bigskip
+	\noindent\textbf{Exercice \theexercice.}~%
+}
+
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+
+\newcommand{\stagiaire}{Loy RIMBON}
+\newcommand{\datedevoir}{19 septembre 2016}
+\newcommand{\titre}{Devoir \no 3}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+
+\begin{document}
+%\maketitle
+
+\noindent\stagiaire\hfill\datedevoir
+
+\bigskip
+\bigskip
+\begin{center}
+{\large\bfseries\titre}
+\end{center}
+\bigskip
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice 
+
+Soit $A$ un anneau. un élément $a$ de $A$ est nilpotent s'il existe un entier naturel $n$ non nul tel que $a^n=0$
+
+\begin{enumerate}
+
+%QUESTION 1
+\item
+	On cherche à montrer que si $a$ est nilpotent $(1-a)$ est inversible.
+	
+\begin{align}
+	(1^n-a^n) &= (1-a)(\displaystyle\sum_{k=0}^n)	\notag\\
+	1 &=(1-a)\frac{1-a^n}{1-a} \notag
+\end{align}
+	
+%QUESTION 2
+\item
+$a$ et $b$ deux éléments nilpotents et permutable. $\exists n$ et $m$ tel que : $a^n=0$ et $b^n=0$.
+
+$(ab)^n=a^nb^b=0 $ et $ (ab)^m=a^mb^m=0$
+
+\begin{align}
+	(a+b)^{m+n} &= \displaystyle\sum_{k=0}^{m+n} C_{m+n}^ka^{m+n-k}b^{k} \notag\\
+	&=a^n(C_{m+n}^ka^{m-k}b^{k} )+b^m(C_{m+n}^ka^{m+n-k}b^{k-m} )\notag\\
+	&=0 \notag
+\end{align}
+
+%QUESTION 3
+\item
+Soit $B$ l'ensemble des éléments nilpotents. $B \subset A$ et $\forall b \in B, \exists n,n\neq 0$ tel que $b^n=0$.
+
+L'ensemble $B$ n'est pas vide car l'élément ${0} \in B, 0^1=0$.
+
+Soit $a$ et $b$ nilpotent, $a$ et $b \in B$. D'après le (2) on sait que $(a+b) $est nilpotent
+
+Soit $b \in B, a \in A$, le produit $ab \in B $ car $(ab)^n=0$
+
+L'ensemble $B$ des éléments nilpotents de $A$ forme un idéal de $A$.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice 
+Soit $A$ un anneau de Boole tel que $\forall x \in A, x^2=x$.
+
+\begin{enumerate}
+
+%QUESTION 1
+\item
+\begin{align}
+	x^2 &= x \notag \\
+	x^2+x+x+x &= x+x+x+x \notag \\
+	x^2+x+x+x^2 &=x+x+x+x \notag \\
+	(x+x)^2&=x+x+x+x \notag \\
+	x+x &= x+x+x+x \notag \\
+	x+x &=0 \notag
+\end{align}
+%QUESTION 2
+\item
+Soit $(x,y) \in A$
+\begin{align}
+	x+y &= (x+y)^2  \notag \\
+	&= xx+xy+yx+yy \notag \\
+	&= x^2 + xy +yx + y^2 \notag \\
+	&= x + xy +yx + y \notag \\
+	&=  \notag \\
+	xy +yx &= 0 \notag
+\end{align}
+\begin{align}
+	xy +yx &= 0 \notag \\
+	xy + yx 
+\end{align}
+
+%QUESTION 3
+\item
+Soit $(x,y) \in A$. On sait d'après la question 2 que $x+x=0 $,
+\begin{align}
+	xy(x+y) &= xyx + xyy \notag \\
+	&= xxy + xy^2 \notag \\
+	&= x^2y +xy^2 \notag \\
+	&=xy+xy \notag \\
+	&=y(x+x) \notag \\
+	&=0 \notag
+\end{align}
+%QUESTION 4
+\item
+
+	
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+ \end{document}
