@@ -33,7 +33,7 @@
 
 \newcommand{\stagiaire}{Loy RIMBON}
 \newcommand{\datedevoir}{19 septembre 2016}
-\newcommand{\titre}{Devoir \no 3}
+\newcommand{\titre}{Devoir \no 3bis}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -83,25 +83,27 @@ Soit $A$ un anneau. un élément $a$ de $A$ est nilpotent s'il existe un entier na
 	
 %QUESTION 2
 \item
-$a$ et $b$ deux éléments nilpotents et permutable. $\exists n$ et $m$ tel que : $a^n=0$ et $b^n=0$.
+$a$ et $b$ deux éléments nilpotents et permutable. $\exists n$ et $m$ tel que : $a^n=0$ et $b^n=0$. 
 
 $(ab)^n=a^nb^b=0 $ et $ (ab)^m=a^mb^m=0$
 
+
 \begin{align}
 	(a+b)^{m+n} &= \displaystyle\sum_{k=0}^{m+n} C_{m+n}^ka^{m+n-k}b^{k} \notag\\
-	&=a^n(C_{m+n}^ka^{m-k}b^{k} )+b^m(C_{m+n}^ka^{m+n-k}b^{k-m} )\notag\\
+	&=a^n(\displaystyle\sum_{k=0}^{m}C_{m}^ka^{m-k}b^{k} )+b^m(\displaystyle\sum_{k=0}^{n}C_{n}^ka^{m+n-k}b^{k-m} )\notag\\
 	&=0 \notag
 \end{align}
 
+Donc si $a$ et $b$ sont nilpotents, $ab$ et $(a+)$ sont nilpotents.
 %QUESTION 3
 \item
 Soit $B$ l'ensemble des éléments nilpotents. $B \subset A$ et $\forall b \in B, \exists n,n\neq 0$ tel que $b^n=0$.
 
 L'ensemble $B$ n'est pas vide car l'élément ${0} \in B, 0^1=0$.
 
-Soit $a$ et $b$ nilpotent, $a$ et $b \in B$. D'après le (2) on sait que $(a+b) $est nilpotent
+Soit $a$ et $b$ nilpotent, $a$ et $b \in B$. D'après le (2) on sait que $(a+b) $est nilpotent.
 
-Soit $b \in B, a \in A$, le produit $ab \in B $ car $(ab)^n=0$
+Soit $b \in B, a \in A$, le produit $ab \in B $ car $(ab)^n=0$.
 
 L'ensemble $B$ des éléments nilpotents de $A$ forme un idéal de $A$.
 
@@ -125,6 +127,8 @@ Soit $A$ un anneau de Boole tel que $\forall x \in A, x^2=x$.
 	x+x &= x+x+x+x \notag \\
 	x+x &=0 \notag
 \end{align}
+
+Donc $x=-x$, quelque soit $x \in A $, $x^{-1}=x$.
 %QUESTION 2
 \item
 Soit $(x,y) \in A$
@@ -150,12 +154,23 @@ Soit $(x,y) \in A$. On sait d'après la question 2 que $x+x=0 $,
 	&= x^2y +xy^2 \notag \\
 	&=xy+xy \notag \\
 	&=y(x+x) \notag \\
-	&=0 \notag
+	xy(x+y)&=0 \notag
 \end{align}
 %QUESTION 4
 \item
+Soit $(x,y) \in A$ tel que $x \neq 0$ et $y \neq 0$. L'anneau $A$ possède donc au moins 3 éléments, $0 \in A$.
 
-	
+D'après la question 3 on peut écrire l'égalité suivante :
+\begin{align}
+	xy(x+y) &= 0 \notag 
+\end{align}
+Or on sait que $(x+y) \neq 0$, car $x\neq y$ et $y$ n'est pas l'opposé de $x$ car d'aprés la question 1, un élément de $A$ est son propre inverse.
+Donc :
+\begin{align}
+	xy(x+y) &= \implies xy=0 \notag 
+\end{align}
+
+On peut donc en déduire que si $A$ à plus de 2 éléments, $A$ n'est pas intègre.
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
