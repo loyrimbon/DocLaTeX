@@ -80,7 +80,10 @@ Soit $A$ un anneau. un élément $a$ de $A$ est nilpotent s'il existe un entier na
 	(1^n-a^n) &= (1-a)(\displaystyle\sum_{k=0}^n)	\notag\\
 	1 &=(1-a)\frac{1-a^n}{1-a} \notag
 \end{align}
-	
+
+On peut donc en déduire que $(1-a)$ est inversible, et $\frac{1-a^n}{1-a} $ est son inverse.
+\bigskip
+
 %QUESTION 2
 \item
 $a$ et $b$ deux éléments nilpotents et permutable. $\exists n$ et $m$ tel que : $a^n=0$ et $b^n=0$. 
@@ -90,22 +93,26 @@ $(ab)^n=a^nb^b=0 $ et $ (ab)^m=a^mb^m=0$
 
 \begin{align}
 	(a+b)^{m+n} &= \displaystyle\sum_{k=0}^{m+n} C_{m+n}^ka^{m+n-k}b^{k} \notag\\
-	&=a^n(\displaystyle\sum_{k=0}^{m}C_{m}^ka^{m-k}b^{k} )+b^m(\displaystyle\sum_{k=0}^{n}C_{n}^ka^{m+n-k}b^{k-m} )\notag\\
+	&=a^n(\displaystyle\sum_{k=0}^{m-1}C_{m}^ka^{m-k}b^{k} )+b^m(\displaystyle\sum_{k=m}^{m+n}C_{n}^ka^{m+n-k}b^{k-m} )\notag\\
 	&=0 \notag
 \end{align}
 
-Donc si $a$ et $b$ sont nilpotents, $ab$ et $(a+)$ sont nilpotents.
+Donc si $a$ et $b$ sont nilpotents, $ab$ et $(a+b)$ sont nilpotents.
+\bigskip
+
 %QUESTION 3
 \item
-Soit $B$ l'ensemble des éléments nilpotents. $B \subset A$ et $\forall b \in B, \exists n,n\neq 0$ tel que $b^n=0$.
+Soit $B$ l'ensemble des éléments nilpotents. $B \subset A$ et $\forall  b \in B, \exists n,n\neq 0$ tel que $b^n=0$.
 
 L'ensemble $B$ n'est pas vide car l'élément ${0} \in B, 0^1=0$.
 
-Soit $a$ et $b$ nilpotent, $a$ et $b \in B$. D'après le (2) on sait que $(a+b) $est nilpotent.
-
 Soit $b \in B, a \in A$, le produit $ab \in B $ car $(ab)^n=0$.
 
-L'ensemble $B$ des éléments nilpotents de $A$ forme un idéal de $A$.
+
+Soit $a$ et $b$ nilpotent, $a$ et $b \in B$. D'après le (2) on sait que $(a+b) $est nilpotent. Donc $(a+b) \in A$.
+
+
+On peut donc en déduire que l'ensemble $B$ des éléments nilpotents de $A$ forme un idéal de $A$.
 
 \end{enumerate}
 
@@ -134,20 +141,21 @@ Donc $x=-x$, quelque soit $x \in A $, $x^{-1}=x$.
 Soit $(x,y) \in A$
 \begin{align}
 	x+y &= (x+y)^2  \notag \\
-	&= xx+xy+yx+yy \notag \\
-	&= x^2 + xy +yx + y^2 \notag \\
-	&= x + xy +yx + y \notag \\
-	&= x+y+xy+yx \notag \\
-	xy +yx &= 0 \notag
+	x+y&= xx+xy+yx+yy \notag \\
+	x+y&= x^2 + xy +yx + y^2 \notag \\
+	x+y &= x + xy +yx + y \notag \\
+	 x+y &= x+y+xy+yx \notag 
 \end{align}
-
+Et donc :% $	xy +yx = 0 $
 \begin{align}
 	xy +yx &= 0 \notag \\
-	xy = -yx 
+	xy = -yx \notag 
 \end{align}
 De plus, d'après la question précédente : $x+x=0$ et $x=-x$.
 
 Donc $-yx=yx \implies xy=yx$, l'anneau $A$ est commutatif.
+\bigskip
+
 %QUESTION 3
 \item
 Soit $(x,y) \in A$. On sait d'après la question 2 que $x+x=0 $,
