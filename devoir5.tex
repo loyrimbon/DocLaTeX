@@ -78,17 +78,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice 
 
-
+Soit $(G,\times), \forall a \in G,x\longmapsto^{ \varphi_a}$ un groupe noté multiplicativemen
 \begin{enumerate}
 
 %QUESTION 1
 \item
-	
+	Si $G$ est commutatif.
+	$\forall x \in G, \varphi_a(x)=axa^{-1}=aa^{-1}x=x$.
+	Ainsi, si $G$ est commutatif l'application $\varphi_a$ est l'application $Id(x)$.
 	
 \bigskip
 
 %QUESTION 2
 \item
+Soit $(x,y) \in G^2, x \neq y $
+\begin{align}
+	\varphi_a(x) \times \varphi_a(y) &= axa^{-1} \times aya^{-1}\notag \\
+	&= axya^{-1} \notag \\
+	&= \varphi_a(xy) \notag
+\end{align}
+
+L'application $\varphi_a$ est un endomorphisme.
+
+$\varphi_a(x)=axa^{-1}  $ et $\varphi_a(y)=aya^{-1}  $
+
+Ainsi,$ x \neq y \implies \varphi_a(x) \neq \varphi_a(y)$, l'application $\varphi_a$ est injective.
+
+L'application $ \varphi_a $ est l'application $Id(x) de G\longrightarrow G$, donc chaque élément de $G$ est sa propre image. Chaque élément de $G$ à donc un antécédent. L'application est donc surjective.
+
+Ainsi, l'application $ \varphi_a $ étant injective et surjective elle est bijective.
+
+On peut donc en déduire que l'application $ \varphi_a $ est un automorphisme de $G$.
+
 \bigskip
 
 %QUESTION 3
@@ -243,6 +264,64 @@ $U_{n+3}=U_n+U_{n+2}$
 
 	\begin{enumerate}(a)
 		\item
+		
+\begin{tikzpicture}[auto, node distance=1.5cm,>=latex,line width=.5pt]
+			% définitions de longueurs
+		
+		\setlength{\sephonr}{2cm}
+		
+		\setlength{\sepvera}{2cm}
+		
+		\setlength{\sepverb}{2cm}
+		% placement des blocks
+		\node[input,name=input]{};
+		\node[block,right of=input,node distance=2cm](s0){$1$};
+		\node[block,right of=s0,node distance=\sephonr](s1){$1$};
+		\node[block,right of=s1,node distance=\sephonr](s2){$1$};
+		\node[block,right of=s2,node distance=\sephonr](s3){$1$};
+		\node[block,right of=s3,node distance=\sephonr](s4){$1$};
+		\node[block,right of=s4,node distance=\sephonr](s5){$1$};
+		\node[block,right of=s5,node distance=\sephonr](s6){$1$};
+		\node[input,right of=s0,node distance=.5\sephonr](output1){};
+	
+		\node[sum,above of=output2,node distance=\sepverb](c1){$+$};
+		%\node[sum,above of=output1,node distance=\sepverb](c2){$+1$};
+		
+		\node[input,right of=s1,node distance=.5\sephonr](output2){};
+		\node[input,right of=s3,node distance=.5\sephonr](output3){};
+				
+		
+		\node[sum,above of=output1,node distance=\sepverb](c12){$+$};
+		\node[input,right of=s6,node distance=.5\sephonr](output3){};
+		\node[input,above of=output3,node distance=\sepverb](output5){};
+		\node[input,above of=input,node distance=\sepverb](output6){};
+		\node[input,below of=input,node distance=.5\sepverb](output7){};
+		% placement des flêches
+		\draw[draw,->](s1)--(s0);
+		\draw[draw,->](s2)--(s1);
+		\draw[draw,->](s3)--(s2);
+		\draw[draw,->](s4)--(s3);
+		\draw[draw,->](s5)--(s4);
+		\draw[draw,->](s6)--(s5);		
+		% première rangée de flèches verticales
+		\draw[draw,->](output12)--(c1);
+		\draw[draw,->](output1)--(c12);
+		% deuxième rangée de flèches verticales
+		\draw[draw](input)--(s0);
+		\draw[draw](c1)--(output5);
+		%\draw[draw](input)--(output16);
+		\draw[draw](output6)--(input);%trait vertical de gauche
+		\draw[draw,->](output16)--(c12);
+		\draw[draw,->](c12)--(c1);
+		\draw[draw,->](output3)--(s6);
+		\draw[draw](output3)--(output5);
+		%\draw[draw](c1)--(output1);
+		\draw[draw,<-](output7)--(s0.west);
+	\end{tikzpicture}		
+		
+		
+		
+		
 		\item
 		\item
 		\item
