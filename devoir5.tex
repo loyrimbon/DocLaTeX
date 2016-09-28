@@ -114,7 +114,9 @@ On peut donc en déduire que l'application $ \varphi_a $ est un automorphisme de
 
 %QUESTION 3
 \item
-
+Soit $ (a,b) \in G^2$, $\varphi_b \circ\varphi_a=\varphi_b (\varphi_a)$
+Pour un élément $x$ de $G$ on à la relation suivante :
+$x\longmapsto baxa^{-1}b^{-1}$.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,6 +131,7 @@ On peut donc en déduire que l'application $ \varphi_a $ est un automorphisme de
 \begin{enumerate}(a)
 \item \textbf{Dessin des registres.}
 
+Le registre 1 correspond au polynôme caractéristique suivant :
 $X^3+X^2+X+1$
 
 \begin{tikzpicture}[auto, node distance=2cm,>=latex,line width=.5pt]
@@ -172,7 +175,7 @@ $X^3+X^2+X+1$
 	\end{tikzpicture}
 
 
-
+Le registre 2 correspond au polynôme caractéristique suivant :
 $X^3+X^2+1$
 
 \begin{tikzpicture}[auto, node distance=2cm,>=latex,line width=.5pt]
@@ -216,9 +219,11 @@ $X^3+X^2+1$
 	\end{tikzpicture}
 
 \item
-\item
 
 
+L'état des registres ainsi que les différentes sorties :
+
+Registre 1 :
 
 \begin{table}[h]
 		\centering
@@ -233,6 +238,9 @@ $X^3+X^2+1$
 		%\caption{My caption}
 		%\label{my-label}
 	\end{table}
+	\item
+L'état des registres ainsi que les différentes sorties :
+Registre 2 :
 
 \begin{table}[h]
 		\centering
@@ -256,16 +264,18 @@ $X^3+X^2+1$
 %QUESTION 2
 
 \item
+Les relations de récurrence sont les suivantes :
 
-$U_{n+3}=U_n+U_{n+1}$
+Registre 1 : $U_{n+3}=U_n+U_{n+1}$
 
-$U_{n+3}=U_n+U_{n+2}$
+Registre 2 : $U_{n+3}=U_n+U_{n+2}$
 \end{enumerate}
 \bigskip
 \item
 
 	\begin{enumerate}(a)
 		\item
+		Registre tournant dans le sens des aiguilles d'une montre à 7 cases avec re-bouclage sur les cases 1 et 4 avec une initialisation à 1 pour toutes les cases.
 		
 \begin{tikzpicture}[auto, node distance=1.5cm,>=latex,line width=.5pt]
 			% définitions de longueurs
@@ -324,12 +334,14 @@ $U_{n+3}=U_n+U_{n+2}$
 		
 		
 		\item
+		Le polynôme caractéristique du registre :
 		\textbf{$X^7+X^4+X$}
 		\item
+		La relation de récurrence est la suivante :
 		$U_{n+7}=U_{n+1}+U_{n+4}$
 		
 		\item
-		
+		L'état des registres ainsi que les différentes sorties :
 
 		\begin{table}[h]
 		\centering
