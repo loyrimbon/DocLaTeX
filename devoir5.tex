@@ -127,7 +127,8 @@ On peut donc en déduire que l'application $ \varphi_a $ est un automorphisme de
 %QUESTION 1
 \item
 \begin{enumerate}(a)
-\item
+\item \textbf{Dessin des registres.}
+
 $X^3+X^2+X+1$
 
 \begin{tikzpicture}[auto, node distance=2cm,>=latex,line width=.5pt]
@@ -214,7 +215,8 @@ $X^3+X^2+1$
 		\draw[draw,<-](output17)--(s10.west);
 	\end{tikzpicture}
 
-\item\item
+\item
+\item
 
 
 
@@ -291,10 +293,10 @@ $U_{n+3}=U_n+U_{n+2}$
 		\node[input,right of=s3,node distance=.5\sephonr](output3){};
 				
 		
-		\node[sum,above of=output1,node distance=\sepverb](c12){$+$};
+		%\node[sum,above of=output1,node distance=\sepverb](c12){$+$};
 		\node[input,right of=s6,node distance=.5\sephonr](output3){};
 		\node[input,above of=output3,node distance=\sepverb](output5){};
-		\node[input,above of=input,node distance=\sepverb](output6){};
+		\node[input,above of=output1,node distance=\sepverb](output6){};
 		\node[input,below of=input,node distance=.5\sepverb](output7){};
 		% placement des flêches
 		\draw[draw,->](s1)--(s0);
@@ -305,14 +307,15 @@ $U_{n+3}=U_n+U_{n+2}$
 		\draw[draw,->](s6)--(s5);		
 		% première rangée de flèches verticales
 		\draw[draw,->](output12)--(c1);
-		\draw[draw,->](output1)--(c12);
+		%\draw[draw,->](output1)--(output2);
+		%\draw[draw,->](output1)--(output15);
 		% deuxième rangée de flèches verticales
-		\draw[draw](input)--(s0);
+		%\draw[draw](input)--(s0);
 		\draw[draw](c1)--(output5);
-		%\draw[draw](input)--(output16);
-		\draw[draw](output6)--(input);%trait vertical de gauche
-		\draw[draw,->](output16)--(c12);
-		\draw[draw,->](c12)--(c1);
+		\draw[draw](output1)--(output6);
+		%\draw[draw](output6)--(input);%trait vertical de gauche
+		\draw[draw,->](output6)--(c1);
+		%\draw[draw,->](c12)--(c1);
 		\draw[draw,->](output3)--(s6);
 		\draw[draw](output3)--(output5);
 		%\draw[draw](c1)--(output1);
@@ -320,11 +323,37 @@ $U_{n+3}=U_n+U_{n+2}$
 	\end{tikzpicture}		
 		
 		
+		\item
+		\textbf{$X^7+X^4+X$}
+		\item
+		$U_{n+7}=U_{n+1}+U_{n+4}$
 		
+		\item
 		
-		\item
-		\item
-		\item
+
+		\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} \hline
+			\cellcolor[HTML]{EFEFEF}\textbf{Temps}  & \cellcolor[HTML]{EFEFEF}\textbf{sortie} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{0} $} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{1} $} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{2} $} & \textbf{$ S_{3} $} & \textbf{$ S_{4} $} & \textbf{$ S_{5} $} & \textbf{$ S_{6} $}\\ \hline
+			0 &   & 1 & 1 & 1  &  1 & 1 & 1 & 1 \\ \hline
+			1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\ \hline
+			2 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 \\ \hline
+			3 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0\\ \hline
+			4 & 1 & 1 & 1 & 1 &  0 & 0 & 0 & 1 \\ \hline
+			5 & 1 & 1 & 1 & 0& 0 & 0 & 1 & 1\\ \hline
+			6 & 1 & 1 & 0 & 0&  0 & 1 & 1 &1 \\ \hline
+			7 & 1 & 0 & 0 & 0&  1 & 1 & 1 &1 \\ \hline
+			8 & 0 & 0 & 0 & 1&  1 & 1 & 1 &1 \\ \hline
+			9 & 0 & 0 & 1 & 1&  1 & 1 & 1 &1 \\ \hline
+			10 &0 & 1 & 1 & 1&  1 & 1 & 1 &0 \\ \hline
+	\end{tabular}
+		%\caption{My caption}
+		%\label{my-label}
+	\end{table}
+
+		
 	\end{enumerate}
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
