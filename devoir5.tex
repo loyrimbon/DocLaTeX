@@ -78,33 +78,36 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \exercice 
 
-Soit $(G,\times), \forall a \in G,x\longmapsto^{ \varphi_a}$ un groupe noté multiplicativemen
+Soit $(G,\times)$, pour tout $a \in G,$ nous considérons l'application $\varphi_a$  qui à tout $x \in G$ associe $axa^{-1}$.
 \begin{enumerate}
 
 %QUESTION 1
 \item
 	Si $G$ est commutatif.
 	$\forall x \in G, \varphi_a(x)=axa^{-1}=aa^{-1}x=x$.
-	Ainsi, si $G$ est commutatif l'application $\varphi_a$ est l'application $Id(x)$.
+	
+	Ainsi, si $G$ est commutatif l'application $\varphi_a$ est l'application identité.
 	
 \bigskip
 
 %QUESTION 2
 \item
-Soit $(x,y) \in G^2, x \neq y $
+Soit $(x,y) \in G^2,$
 \begin{align}
 	\varphi_a(x) \times \varphi_a(y) &= axa^{-1} \times aya^{-1}\notag \\
 	&= axya^{-1} \notag \\
 	&= \varphi_a(xy) \notag
 \end{align}
 
-L'application $\varphi_a$ est un endomorphisme.
+L'application $\varphi_a$ est un endomorphisme de $G$ dans $G$.
+\medskip
 
-$\varphi_a(x)=axa^{-1}  $ et $\varphi_a(y)=aya^{-1}  $
-
+Ensuite, $\varphi_a(x)=axa^{-1}=x  $ et $\varphi_a(y)=aya^{-1} =y$.
 Ainsi,$ x \neq y \implies \varphi_a(x) \neq \varphi_a(y)$, l'application $\varphi_a$ est injective.
+\medskip
 
-L'application $ \varphi_a $ est l'application $Id(x) de G\longrightarrow G$, donc chaque élément de $G$ est sa propre image. Chaque élément de $G$ à donc un antécédent. L'application est donc surjective.
+L'application $ \varphi_a $ est l'application identité de $G\longrightarrow G$. Chaque élément de $G$ est sa propre image donc chaque élément de $G$ est son propre antécédent. L'application est donc surjective.
+\medskip
 
 Ainsi, l'application $ \varphi_a $ étant injective et surjective elle est bijective.
 
@@ -114,35 +117,44 @@ On peut donc en déduire que l'application $ \varphi_a $ est un automorphisme de
 
 %QUESTION 3
 \item
-Soit $ (a,b) \in G^2$, $\varphi_b \circ\varphi_a=\varphi_b (\varphi_a)$
-Pour un élément $x$ de $G$ on à la relation suivante :
-$x\longmapsto baxa^{-1}b^{-1}$.
+Soit  $ (a,b,x) \in G^3$,
+
+\begin{align}
+	\varphi_b \circ\varphi_a(x) &= \varphi_b(\varphi_a(x))\notag \\
+	&=\varphi_b(axa^{-1}) \notag \\
+	&=baxa^{-1}b^{-1} \notag \\
+	&=\varphi_{ba}(x)  \in G\notag
+\end{align}
+
+La loi $\circ$ est donc une loi de composition interne.
+\medskip
 
 
 $\forall (a,b,c) \in G^3 $
 
 \begin{align}
-	\varphi_a \circ(\varphi_b \circ\varphi_c) &= \varphi_a \circ(\varphi_b(\varphi_c(x))) \notag \\
-	&=  \varphi_a \circ(\varphi_{bc}x)\notag \\
+	\varphi_a \circ(\varphi_b \circ\varphi_c(x)) &= \varphi_a \circ(\varphi_b(\varphi_c(x))) \notag \\
+	&=  \varphi_a \circ(\varphi_{bc}(x))\notag \\
 	&= \varphi_a(bcxc^{-1}b^{-1})\notag \\
 	&= abcxc^{-1}b^{-1}a^{-1}\notag \\
 	&= ab(cxc^{-1})b^{-1}a^{-1}\notag \\
-	&= ab(\varphi_c(x)b^{-1}a^{-1}\notag \\
-	&= \varphi_{ab}(\varphi_c(x)\notag \\
-	&= (\varphi_a \circ\varphi_b)\varphi_c(x)\notag 
+	&= \varphi_{ab}(c(x)c^{-1})\notag \\
+	&= \varphi_{ab}\circ \varphi_c(x)\notag \\
+	&= (\varphi_a \circ\varphi_b)\circ \varphi_c(x)\notag 
 \end{align}
 
 Ainsi, la loi $\circ$ est associative.
+\medskip
 
 
-Soit $e_g \in G$, 
+Soit $e_G \in G$, 
 \begin{align}
-	\varphi_{e_g}(x) &=e_gxe_g^-1 \notag \\
+	\varphi_{e_G}(x) &=e_Gxe_G^{-1} \notag \\
 	&= x \notag
 \end{align}
 Il existe bien un élément neutre pour la loi $\circ$.
 
-
+Ensuite, $\forall a \in G$,
 \begin{align}
 	\varphi_a \circ \varphi_{a^{-1}}&=\varphi_a(a^{-1}x(a^{-1})^{-1})\notag \\
 	&=aa^{-1}xaa^{-1} \notag \\
@@ -302,7 +314,8 @@ Registre 1 : $U_{n+3}=U_n+U_{n+1}$
 
 Registre 2 : $U_{n+3}=U_n+U_{n+2}$
 \end{enumerate}
-\bigskip
+
+\newpage
 \item
 
 	\begin{enumerate}(a)
