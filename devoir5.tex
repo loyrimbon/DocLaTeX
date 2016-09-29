@@ -117,6 +117,38 @@ On peut donc en déduire que l'application $ \varphi_a $ est un automorphisme de
 Soit $ (a,b) \in G^2$, $\varphi_b \circ\varphi_a=\varphi_b (\varphi_a)$
 Pour un élément $x$ de $G$ on à la relation suivante :
 $x\longmapsto baxa^{-1}b^{-1}$.
+
+
+$\forall (a,b,c) \in G^3 $
+
+\begin{align}
+	\varphi_a \circ(\varphi_b \circ\varphi_c) &= \varphi_a \circ(\varphi_b(\varphi_c(x))) \notag \\
+	&=  \varphi_a \circ(\varphi_{bc}x)\notag \\
+	&= \varphi_a(bcxc^{-1}b^{-1})\notag \\
+	&= abcxc^{-1}b^{-1}a^{-1}\notag \\
+	&= ab(cxc^{-1})b^{-1}a^{-1}\notag \\
+	&= ab(\varphi_c(x)b^{-1}a^{-1}\notag \\
+	&= \varphi_{ab}(\varphi_c(x)\notag \\
+	&= (\varphi_a \circ\varphi_b)\varphi_c(x)\notag 
+\end{align}
+
+Ainsi, la loi $\circ$ est associative.
+
+
+Soit $e_g \in G$, 
+\begin{align}
+	\varphi_{e_g}(x) &=e_gxe_g^-1 \notag \\
+	&= x \notag
+\end{align}
+Il existe bien un élément neutre pour la loi $\circ$.
+
+
+\begin{align}
+	\varphi_a \circ \varphi_{a^{-1}}&=\varphi_a(a^{-1}x(a^{-1})^{-1})\notag \\
+	&=aa^{-1}xaa^{-1} \notag \\
+	&= x
+\end{align}
+La loi $\circ$ dispose bien d'un symétrique $\forall a \in G$.
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
