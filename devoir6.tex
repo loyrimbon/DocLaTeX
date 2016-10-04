@@ -1,0 +1,159 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+
+\usepackage{xlop}
+\usepackage{ifthen}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+
+%\usepackage{mathsfs}
+
+%\title{Devoir 1 de Mathématiques}
+%\author{\textsc{RIMBON} Loy}
+%\date{\today}
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\newcounter{exercice}
+\setcounter{exercice}{0}
+\newcommand{\exercice}{%
+	\refstepcounter{exercice}%
+	\bigskip
+	\bigskip
+	\noindent\textbf{Exercice \theexercice.}~%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% styles TikZ pour les blocks
+\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
+\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
+\tikzstyle{input}=[coordinate]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+
+\newcommand{\stagiaire}{Loy RIMBON}
+\newcommand{\datedevoir}{30 septembre 2016}
+\newcommand{\titre}{Devoir \no 6}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\input{PGCD.tex}
+
+\begin{document}
+%\maketitle
+
+\noindent\stagiaire\hfill\datedevoir
+
+\bigskip
+\bigskip
+\begin{center}
+{\large\bfseries\titre}
+\end{center}
+\bigskip
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice 
+
+\begin{enumerate}
+
+%QUESTION 1
+\item
+
+
+%QUESTION 2
+\item
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice 
+
+\begin{enumerate}
+
+%QUESTION 1
+\item
+Déterminer le PGCD $d$ de 2412 et de 670.
+
+\begin{align}
+	2412 &= 670 \times 3 + 402 \notag \\
+	670 &=  402 \times 1 + 268 \notag \\
+	402 &= 268 \times 1 + 134 \notag \\
+	268 &= 134 \times 2 + 0 \notag
+\end{align}
+Ainsi, $2412 \wedge 670 = 134$
+
+%QUESTION 2
+\item
+Déterminer l'ensemble des couples $(u, v)$ de $\Z^2$ tels que $2412u + 670v=d$
+
+$2412u + 670v=134 \Longleftrightarrow18u+5v=1$
+
+On vérifie que $18 \wedge 5=1$
+\begin{center}
+	\PGCD{2412}{670}
+	\opgcd{18}{5}{d}
+	$\opprint{d}$.
+\end{center}
+
+\begin{align}
+	18 &= 5 \times 3 + 3 \notag \\
+	5 &= 3 \times 1 + 2 \notag \\
+	3 &= 2 \times 1 + 1 \notag \\
+	2 &= 1 \times 2 + 0 \notag
+\end{align}
+
+\begin{align}
+	1 &= 3-2 \times 1 \notag \\
+		&= 3-(5-3) \notag \\
+		&= 18-5 \times 3 -(5-(18-5 \times 3)) \notag \\
+		&=18-5\times 3-(5-18+5\times 3) \notag \\
+		&=18 - 5 \times 3 -(5 \times 4 - 18) \notag \\
+		&= 18-5 \times -5 \times 4 + 18 \notag \\
+		&= 18 \times 2 - 5 \times 7 \notag
+\end{align}
+
+On a donc déterminer $u=2$ et $v=-7$. On peut à présent essayer de déterminer l'ensemble des couples $(u,v)$ solution de l'équation de départ.
+
+\begin{align}
+	18u + 5V &=1 \\	
+\end{align}
+%\opsub[carrysub]{18u+5v}{18 2 - 5 7}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+ \end{document}
