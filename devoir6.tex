@@ -46,7 +46,7 @@
 %!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
 
 \newcommand{\stagiaire}{Loy RIMBON}
-\newcommand{\datedevoir}{30 septembre 2016}
+\newcommand{\datedevoir}{6 octobre 2016}
 \newcommand{\titre}{Devoir \no 6}
 
 \newcommand{\R}{\mathbb{R}}
@@ -87,12 +87,29 @@
 
 %QUESTION 1
 \item
+On cherche à démontrer la proposition suivante : si $a \wedge b=1$, alors $a \wedge a+b=1$.
+
+Soit $d$ le $pgcd(a,a+b)$ tel que $d \neq 1$. Il existe $u$ et $v \in \Z^2$ tel que $au+(a+b)v=d$.
+\begin{align}
+	au+(a+b)v&=d \notag \\
+	au+av+bv &= d \notag \\
+	a(\underbrace{u+v}_{\in \Z}) + bv &=d \notag 
+\end{align}
 
 
+La contraposée de la proposition et vérifiée. Ainsi, si $a \wedge b=1$, alors $a \wedge a+b=1$.  
 %QUESTION 2
 \item
+	$pgcd(a,b)=1 $ et $pgcd(a,c)=1$. Soit $(u,v,u',v') \in \Z^4 $ tel que $au+bv=1$ et $au'+cv'=1$
+	\begin{align}
+		(au+bv)\times(au'+cv')&=1 \notag \\
+		auau'+aucv'+bvau'+bvcv'&=1 \notag \\
+		a(\underbrace{auu'+ucv'+bvu'}_{\in \Z})+bc\underbrace{cv'}_{\in \Z} &=1 \notag
+	\end{align}
 
-\end{enumerate}
+	Il existe donc un couple $(u,v) \in \Z $ tel que $au+bcv=1$.
+
+	\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,57 +120,93 @@
 
 %QUESTION 1
 \item
-Déterminer le PGCD $d$ de 2412 et de 670.
+	Déterminer le PGCD $d$ de 2412 et de 670.
 
-\begin{align}
-	2412 &= 670 \times 3 + 402 \notag \\
-	670 &=  402 \times 1 + 268 \notag \\
-	402 &= 268 \times 1 + 134 \notag \\
-	268 &= 134 \times 2 + 0 \notag
-\end{align}
-Ainsi, $2412 \wedge 670 = 134$
+	\begin{align}
+		2412 &= 670 \times 3 + 402 \notag \\
+		670 &=  402 \times 1 + 268 \notag \\
+		402 &= 268 \times 1 + 134 \notag \\
+		268 &= 134 \times 2 + 0 \notag
+	\end{align}
+	Ainsi, $2412 \wedge 670 = 134$
 
 %QUESTION 2
 \item
-Déterminer l'ensemble des couples $(u, v)$ de $\Z^2$ tels que $2412u + 670v=d$
+	Déterminer l'ensemble des couples $(u, v)$ de $\Z^2$ tels que $2412u + 670v=d$
+	\begin{center}
+		$2412u + 670v=134 \Longleftrightarrow18u+5v=1$
+	\end{center}
+	
+	On vérifie que $18 \wedge 5=1$
 
-$2412u + 670v=134 \Longleftrightarrow18u+5v=1$
-
-On vérifie que $18 \wedge 5=1$
-\begin{center}
-	\PGCD{2412}{670}
-	\opgcd{18}{5}{d}
-	$\opprint{d}$.
-\end{center}
-
-\begin{align}
-	18 &= 5 \times 3 + 3 \notag \\
-	5 &= 3 \times 1 + 2 \notag \\
-	3 &= 2 \times 1 + 1 \notag \\
-	2 &= 1 \times 2 + 0 \notag
-\end{align}
-
-\begin{align}
-	1 &= 3-2 \times 1 \notag \\
+	\begin{align}
+		18 &= 5 \times 3 + 3 \notag \\
+		5 &= 3 \times 1 + 2 \notag \\
+		3 &= 2 \times 1 + 1 \notag \\
+		2 &= 1 \times 2 + 0 \notag
+	\end{align}
+On cherche maintenant à déterminer $u$ et $v$ en utilisant les équations précédentes.
+	\begin{align}
+		1 &= 3-2 \times 1 \notag \\
 		&= 3-(5-3) \notag \\
 		&= 18-5 \times 3 -(5-(18-5 \times 3)) \notag \\
 		&=18-5\times 3-(5-18+5\times 3) \notag \\
 		&=18 - 5 \times 3 -(5 \times 4 - 18) \notag \\
 		&= 18-5 \times -5 \times 4 + 18 \notag \\
 		&= 18 \times 2 - 5 \times 7 \notag
-\end{align}
+	\end{align}
 
-On a donc déterminer $u=2$ et $v=-7$. On peut à présent essayer de déterminer l'ensemble des couples $(u,v)$ solution de l'équation de départ.
+	On a donc déterminer $u=2$ et $v=-7$. On peut à présent essayer de déterminer l'ensemble des couples $(u,v)$ solution de l'équation de départ.
 
-\begin{align}
-	18u + 5V &=1 \\	
-\end{align}
+	\begin{align}
+		18u + 5V &=1 \\	
+		18 \times 2 - 5 \times 7 = 1 
+	\end{align}
+
+	En soustrayant les équations 1 et 2, on obtient l'équation suivante :
+	\begin{align}
+		18(u-2)+5(v+7)&=0 \notag \\
+		5(v+7) &= 18(2-u)  
+	\end{align}
+
+Ainsi, $5$ divise $18(2-u)$ et $5 \wedge 18=1 \implies 5$ divise $(2-u)$.
+
+Ainsi, $(2-u)=5k$ et $ k \in \Z$, donc $u = 2-5k$.
+
+On injecte dans l'équation (3) la nouvelle expression de $u$.
+	\begin{align}
+		5(v+7) &= 18(2 - 2+5k) \notag \\
+		5(v + 7) &= 18 \times 5k \notag \\
+		v+7 &= 18k \notag
+	\end{align}
+
+\[ solutions
+\left\{
+\begin{aligned}	
+	v=18k-7\notag \\
+	u=2-5k \notag \\	
+\end{aligned}
+\right.\]
 %\opsub[carrysub]{18u+5v}{18 2 - 5 7}
 \end{enumerate}
+
+Vérification :
+ $k=7$ alors $u=-33 $ et $v=119$.
+\begin{align}
+	18 \times -33 + 5 \times 119 &= 1 \notag \\
+	2412 \times -33 + 670 \times 119 &= 134 \notag
+\end{align}
+
+L'ensemble des couples $(u,v)$ tels que $2412u + 670v = d$ est $(2-5k,18k-7)$, $ k \in \Z$.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+%\begin{center}
+	%\PGCD{1895664}{47856}
+%	\opgcd{1895664}{47856}{d}
+%	$\opprint{d}$.
+%\end{center}
 
  \end{document}

@@ -9,13 +9,18 @@
 \opgcd{A}{B}{PGCD}%
 \noindent%
 %Calculons par l'algorithme d'\textsc{Euclide} le PGCD des nombres $ \opprint{A} $ et $ \opprint{B} $.\\%
+%\begin{align}
+
+
 \whiledo{\equal{\thearret}{0}}%
 {\opidiv*{a}{b}{q}{r}%
-$ \opprint{a} = \opprint{b} \times \opprint{q} + \opprint{r} $\\%
+$ \opprint{a} = \opprint{b} \times \opprint{q} + \opprint{r} $\\
+%\opprint{a} $= \opprint{b} \times \opprint{q} + \opprint{r} \notag   \\
 \opcmp{r}{0}%
 \ifopeq%
         \refstepcounter{arret}%
 \fi%
+%\end{align}
 \opcopy{b}{a}%
 \opcopy{r}{b}}%
 %Le PGCD des nombres $ \opprint{A} $ et $ \opprint{B} $ est le dernier reste non nul du procédé,
