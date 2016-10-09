@@ -1,153 +1,197 @@
-\documentclass[a4paper,10pt]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[francais]{babel}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{graphics}
-\usepackage{amssymb}
-\usepackage{color}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage{tikz}
-
-\usepackage{xlop}
-\usepackage{ifthen}
-\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
-
-%\usepackage{mathsfs}
-
-%\title{Devoir 1 de Mathématiques}
-%\author{\textsc{RIMBON} Loy}
-%\date{\today}
-
-%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-\newcounter{exercice}
-\setcounter{exercice}{0}
-\newcommand{\exercice}{%
-	\refstepcounter{exercice}%
-	\bigskip
-	\bigskip
-	\noindent\textbf{Exercice \theexercice.}~%
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% styles TikZ pour les blocks
-\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
-\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
-\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
-\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
-\tikzstyle{input}=[coordinate]
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
-%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
-%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
-
-\newcommand{\stagiaire}{Loy RIMBON}
-\newcommand{\datedevoir}{10 octobre 2016}
-\newcommand{\titre}{Devoir \no 7}
-
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
-
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\geq}{\geqslant}
-
-\input{PGCD.tex}
-
-\begin{document}
-%\maketitle
-
-\noindent\stagiaire\hfill\datedevoir
-
-\bigskip
-\bigskip
-\begin{center}
-{\large\bfseries\titre}
-\end{center}
-\bigskip
-\bigskip
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\exercice
-Résoudre dans $\Z$
-
-\[
-\left\{
-\begin{aligned}	
-	x \equiv 5(mod 12) (1)\\
-	x \equiv 3(mod 35) (2)\\	
-	x \equiv 8(mod 13) (3)
-	\end{aligned}	
-\right.\]
-
-\PGCD{35}{13}
-
-Le $pgcd(35,13)=1$, donc il existe une unique solution modulo $35 \times 13)$ pour (2) et (3).
-
-$x=35k +3 \equiv 9k+3(mod 13)=8(mod)13$
-
-\begin{align}
-	9k &= 5(mod 13) \notag \\
-	3 \times 9k &= 3 \times 5(mod 13) \notag \\
-	k &=2(mod 13) \notag \\
-	k &= 13k'+2 \notag
-\end{align}
-
-\begin{align}
-	x &= 35(13k'+2)+3 \notag \\
-	   &= 35 \times 13k' +73 \notag \\
-	   &\equiv 73(mod 35 \times 13) \notag
-\end{align}
-
-\[
-\left\{
-\begin{aligned}	
-	x \equiv 73(mod 455) (4)\\	
-	x \equiv 8(mod 13) (5)
-	\end{aligned}	
-\right.\]
-
-Le $pgcd(73,5)=1$. Ainsi il existe une unique solution modulo $455 \times 13 $ pour (4) et (5).
-
-$x=455k +73 \equiv 11k + 1 (mod 12)=5 (mod 12)$
-
-\begin{align}
-	11k&=4(mod 12) \notag \\
-	11 \times 11k &= 44 (mod 12) \notag \\	
-	k &= 8 (mod 12) \notag \\
-	k &= 12k' +8 \notag
-\end{align}
-
-\begin{align}
-	x &= 455(12k'+8)+73 \notag \\
-	   &= 455 \times 12k' + 3640 + 73 \notag \\
-	   &= 455 \times 12k'+3713 \notag \\
-	   &\equiv 3713 (mod 455 \times 12) \notag 
-\end{align}
- \end{document}
+	\documentclass[a4paper,10pt]{article}
 	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[francais]{babel}
+	\usepackage{amsthm}
+	\usepackage{amsmath}
+	\usepackage{graphics}
+	\usepackage{amssymb}
+	\usepackage{color}
+	\usepackage[table,xcdraw]{xcolor}
+	\usepackage{tikz}
+	
+	\usepackage{xlop}
+	\usepackage{ifthen}
+	\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+	
+	%\usepackage{mathsfs}
+	
+	%\title{Devoir 1 de Mathématiques}
+	%\author{\textsc{RIMBON} Loy}
+	%\date{\today}
+	
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	\newcounter{exercice}
+	\setcounter{exercice}{0}
+	\newcommand{\exercice}{%
+		\refstepcounter{exercice}%
+		\bigskip
+		\bigskip
+		\noindent\textbf{Exercice \theexercice.}~%
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% styles TikZ pour les blocks
+	\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+	\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+	\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
+	\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
+	\tikzstyle{input}=[coordinate]
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+	
+	\newcommand{\stagiaire}{Loy RIMBON}
+	\newcommand{\datedevoir}{10 octobre 2016}
+	\newcommand{\titre}{Devoir \no 7}
+	
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\C}{\mathbb{C}}
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\Q}{\mathbb{Q}}
+	\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+	
+	\renewcommand{\leq}{\leqslant}
+	\renewcommand{\geq}{\geqslant}
+	
+	\input{PGCD.tex}
+	
+	\begin{document}
+	%\maketitle
+	
+	\noindent\stagiaire\hfill\datedevoir
+	
+	\bigskip
+	\bigskip
+	\begin{center}
+	{\large\bfseries\titre}
+	\end{center}
+	\bigskip
+	\bigskip
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice 
+Montrer que pour tout entier naturel $n$, $\frac{5^{n+1}+6^{n+1}}{5^n+6^n}$ est irréductible.
+	
+On suppose,  $\frac{5^{n+1}+6^{n+1}}{5^n+6^n}$ réductible. Il existe les entiers naturels $a,b, d$ tel que :
+
+\begin{align}
+	\frac{5^{n+1}+6^{n+1}}{5^n+6^n} &= \frac{d}{d}\times \frac{a}{b} \notag
+\end{align}
+
+$5^{n+1}+6^{n+1} =ad $ et $5^n+6^n=bd $ avec $d=pgcd(5^{n+1}+6^{n+1},5^n+6^n)$ et $a$ et $b$ premiers entre eux.
+
+D'après le théorème de Bezout, $a$ et $b$ sont premiers entre eux si et seulement si il existe $u$ et $v \in \Z^2$ tel que $au+bv=1$. 
+
+\begin{align}
+	au+bv=1 \implies (5^{n+1}+6^{n+1})u + (5^n+6^n)v &=d \notag \\
+	5(5^nu+5^{n-1}v)+6(6^nu+6^{n-1}v) &= d \notag
+\end{align}
+
+Soit $u'=5^nu+5^{n-1}v$ et $v'=6^nu+6^{n-1}v$, $u'$ et $v'$ sont non nuls car $\in \Z$. 
+
+De plus, $5$ et $6$ sont premiers entre eux, donc $\exists u,v$ tel que $5u+6v=1$, donc $d=1$. Par hypothèse $d\neq 1$, donc l'hypothèse de départ est fausse. Si l'hypothèse de départ est fausse on peut donc conclure que $\frac{5^{n+1}+6^{n+1}}{5^n+6^n}$ est irréductible.
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice 
+	Montrer que pour tout entier naturel $n$ non nul, $10^{10^n}\equiv 4(\mod 7)$.
+	
+	$10 \equiv 3 (\mod 7)$.
+	
+	\begin{align}
+		3^1 &\equiv 3 (\mod 7) \notag \\
+		3^2 &\equiv 2 (\mod 7) \notag \\
+		3^3 &\equiv 6 (\mod 7) \notag \\
+		3^4 &\equiv 4 (\mod 7) \notag \\
+		3^5 &\equiv 5 (\mod 7) \notag \\
+		3^6 &\equiv 1 (\mod 7) \notag 
+	\end{align}
+
+	\begin{align}
+		10^1 &\equiv 4(\mod 6) \notag \\
+		10^2 &\equiv 4(\mod 6) \notag\\
+		&... \notag \\
+		10^n & \equiv 4(\mod 6) \notag \\
+		10^n &= 6k + 4 \notag
+	\end{align}
+
+	\begin{align}
+		10^{10^n} \equiv 3^{10^n} &= 3^{6k+4} (\mod 7) \notag \\
+			&\equiv 3^{6k}3^4(\mod 7) \notag \\
+			&\equiv 4 (\mod 7) \notag
+	\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice
+	Résoudre dans $\Z$
+	
+	\[
+	\left\{
+	\begin{aligned}	
+		x \equiv 5 (\mod 12) (1)\\
+		x \equiv 3(\mod 35) (2)\\	
+		x \equiv 8(\mod 13) (3)
+		\end{aligned}	
+	\right.\]
+	
+	\PGCD{35}{13}
+	
+	Le $pgcd(35,13)=1$, donc il existe une unique solution modulo $35 \times 13)$ pour (2) et (3).
+	
+	$x=35k +3 \equiv 9k+3(\mod 13)=8(\mod)13$
+	
+	\begin{align}
+		9k &= 5(\mod 13) \notag \\
+		3 \times 9k &= 3 \times 5(\mod 13) \notag \\
+		k &=2(\mod 13) \notag \\
+		k &= 13k'+2 \notag
+	\end{align}
+	
+	\begin{align}
+		x &= 35(13k'+2)+3 \notag \\
+		   &= 35 \times 13k' +73 \notag \\
+		   &\equiv 73(\mod 35 \times 13) \notag
+	\end{align}
+	
+	\[
+	\left\{
+	\begin{aligned}	
+		x \equiv 73(\mod 455) (4)\\	
+		x \equiv 8(\mod 13) (5)
+		\end{aligned}	
+	\right.\]
+	
+	Le $pgcd(73,5)=1$. Ainsi il existe une unique solution modulo $455 \times 13 $ pour (4) et (5).
+	
+	$x=455k +73 \equiv 11k + 1 (\mod 12)=5 (\mod 12)$
+	
+	\begin{align}
+		11k&=4(\mod 12) \notag \\
+		11 \times 11k &= 44(\mod 12) \notag \\	
+		k &= 8(\mod 12) \notag \\
+		k &= 12k' +8 \notag
+	\end{align}
+	
+	\begin{align}
+		x &= 455(12k'+8)+73 \notag \\
+		   &= 455 \times 12k' + 3640 + 73 \notag \\
+		   &= 455 \times 12k'+3713 \notag \\
+		   &\equiv 3713 (\mod 455 \times 12) \notag 
+	\end{align}
+	 \end{document}
+		
