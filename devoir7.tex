@@ -109,30 +109,29 @@ De plus, $5$ et $6$ sont premiers entre eux, donc $\exists u,v$ tel que $5u+6v=1
 	\exercice 
 	Montrer que pour tout entier naturel $n$ non nul, $10^{10^n}\equiv 4(\mod 7)$.
 	
-	$10 \equiv 3 (\mod 7)$.
+	$10 \equiv 3 (7)$.
 	
 	\begin{align}
-		3^1 &\equiv 3 (\mod 7) \notag \\
-		3^2 &\equiv 2 (\mod 7) \notag \\
-		3^3 &\equiv 6 (\mod 7) \notag \\
-		3^4 &\equiv 4 (\mod 7) \notag \\
-		3^5 &\equiv 5 (\mod 7) \notag \\
-		3^6 &\equiv 1 (\mod 7) \notag 
+		10^1 &\equiv 3 (7) \notag \\
+		10^2 &\equiv 2 (7) \notag \\
+		10^3 &\equiv 6 (7) \notag \\
+		10^4 &\equiv 4 (7) \notag \\
+		10^5 &\equiv 5 (7) \notag \\
+		10^6 &\equiv 1 (7) \notag \\
+		10^{10} &\equiv 4 (7) \notag
 	\end{align}
 
+
+$10^{10^n}\equiv 4(7)$ pour $n=1$. On suppose la proposition vrai au rang $n$. 
 	\begin{align}
-		10^1 &\equiv 4(\mod 6) \notag \\
-		10^2 &\equiv 4(\mod 6) \notag\\
-		&... \notag \\
-		10^n & \equiv 4(\mod 6) \notag \\
-		10^n &= 6k + 4 \notag
+		10^{10^n+1} &= 10^{10^{n^{10}}} \notag \\
+			&\equiv (4(7))^{10} \notag \\
+			&\equiv 4^{10}(7) \notag \\
+			&\equiv 4(7) \notag
 	\end{align}
 
-	\begin{align}
-		10^{10^n} \equiv 3^{10^n} &= 3^{6k+4} (\mod 7) \notag \\
-			&\equiv 3^{6k}3^4(\mod 7) \notag \\
-			&\equiv 4 (\mod 7) \notag
-	\end{align}
+La proposition est vraie au rang $n+1$, donc pour tout entier naturel n non nul $10^{10^n}\equiv 4(\mod 7)$.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,55 +142,83 @@ De plus, $5$ et $6$ sont premiers entre eux, donc $\exists u,v$ tel que $5u+6v=1
 	\[
 	\left\{
 	\begin{aligned}	
-		x \equiv 5 (\mod 12) (1)\\
-		x \equiv 3(\mod 35) (2)\\	
-		x \equiv 8(\mod 13) (3)
+		x \equiv 5 (12) (1)\\
+		x \equiv 3(35) (2)\\	
+		x \equiv 8(13) (3)
 		\end{aligned}	
 	\right.\]
 	
-	\PGCD{35}{13}
+	%\PGCD{35}{13}
 	
-	Le $pgcd(35,13)=1$, donc il existe une unique solution modulo $35 \times 13)$ pour (2) et (3).
+	Le $pgcd(35,13)=1$, donc il existe une unique solution modulo $(35 \times 13)$ pour (2) et (3).
 	
-	$x=35k +3 \equiv 9k+3(\mod 13)=8(\mod)13$
+On commence par traiter les équations $2$ et $3$. 
 	
+\[
+	\left\{
+	\begin{aligned}	
+		x \equiv 3(35) (2)\\	
+		x \equiv 8(13) (3)
+		\end{aligned}	
+	\right.\]	
+	
+De ces équations ont en déduit l'expression de $x$ suivante :
+
+	\begin{center}
+	$x=35k +3 \equiv 9k+3(13)=8(13)$
+	\end{center}
+	
+On cherche ensuite à déterminer la valeur de $k$.
 	\begin{align}
-		9k &= 5(\mod 13) \notag \\
-		3 \times 9k &= 3 \times 5(\mod 13) \notag \\
-		k &=2(\mod 13) \notag \\
+		9k &= 5(13) \notag \\
+		3 \times 9k &= 3 \times 5(13) \notag \\
+		k &=2(13) \notag \\
 		k &= 13k'+2 \notag
 	\end{align}
-	
+
+On remplace l'expression de $k$	dans l'équation.
 	\begin{align}
 		x &= 35(13k'+2)+3 \notag \\
 		   &= 35 \times 13k' +73 \notag \\
-		   &\equiv 73(\mod 35 \times 13) \notag
+		   &\equiv 73(35 \times 13) \notag
 	\end{align}
 	
+	
+Il reste à résoudre les deux questions suivantes :
 	\[
 	\left\{
 	\begin{aligned}	
-		x \equiv 73(\mod 455) (4)\\	
-		x \equiv 8(\mod 13) (5)
+		x \equiv 73(455) (4)\\	
+		x \equiv 8(13) (5)
 		\end{aligned}	
 	\right.\]
 	
 	Le $pgcd(73,5)=1$. Ainsi il existe une unique solution modulo $455 \times 13 $ pour (4) et (5).
-	
-	$x=455k +73 \equiv 11k + 1 (\mod 12)=5 (\mod 12)$
-	
+
+De ces équations ont peut déduire, l'expression suivante :	
+	\begin{center}
+	$x=455k +73 \equiv 11k + 1 (\mod 12)=5 (12)$
+	\end{center}
+
+On cherche ensuite à déterminer la valeur de $k$.	
 	\begin{align}
-		11k&=4(\mod 12) \notag \\
-		11 \times 11k &= 44(\mod 12) \notag \\	
+		11k&=4(12) \notag \\
+		11 \times 11k &= 44(12) \notag \\	
 		k &= 8(\mod 12) \notag \\
 		k &= 12k' +8 \notag
 	\end{align}
+
+On remplace l'expression de $k$	dans l'équation.
 	
 	\begin{align}
 		x &= 455(12k'+8)+73 \notag \\
 		   &= 455 \times 12k' + 3640 + 73 \notag \\
 		   &= 455 \times 12k'+3713 \notag \\
-		   &\equiv 3713 (\mod 455 \times 12) \notag 
+		   &\equiv 3713 (455 \times 12) \notag 
 	\end{align}
+	
+On obtient pour unique solution des équations, $x\equiv 3713 (455 \times 12)$.
+	
+	
 	 \end{document}
 		
