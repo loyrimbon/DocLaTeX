@@ -1,0 +1,456 @@
+	\documentclass[a4paper,10pt]{article}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[francais]{babel}
+	\usepackage{amsthm}
+	\usepackage{amsmath}
+	\usepackage{graphics}
+	\usepackage{amssymb}
+	\usepackage{color}
+	\usepackage[table,xcdraw]{xcolor}
+	\usepackage{tikz}
+	
+	\usepackage{xlop}
+	\usepackage{ifthen}
+	\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+
+	%\usepackage{mathsfs}
+	
+	%\title{Devoir 1 de Mathématiques}
+	%\author{\textsc{RIMBON} Loy}
+	%\date{\today}
+	
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	\newcounter{exercice}
+	\setcounter{exercice}{0}
+	\newcommand{\exercice}{%
+		\refstepcounter{exercice}%
+		\bigskip
+		\bigskip
+		\noindent\textbf{Exercice \theexercice.}~%
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% styles TikZ pour les blocks
+	\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+	\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+	\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
+	\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
+	\tikzstyle{input}=[coordinate]
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+	
+	\newcommand{\stagiaire}{CNE Loy RIMBON}
+	\newcommand{\datedevoir}{17 octobre 2016}
+	\newcommand{\titre}{Devoir de cryptographie}
+	
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\C}{\mathbb{C}}
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\Q}{\mathbb{Q}}
+	\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+	
+	\renewcommand{\leq}{\leqslant}
+	\renewcommand{\geq}{\geqslant}
+	
+	\input{PGCD.tex}
+	
+	\begin{document}
+	%\maketitle
+	
+	\noindent\stagiaire\hfill\datedevoir
+	
+	\bigskip
+	\bigskip
+	\begin{center}
+	{\large\bfseries\titre}
+	\end{center}
+	\bigskip
+	\bigskip
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Test de primalité.
+	
+	\begin{enumerate}
+	\item
+		$90=(1011010)_2$.
+	\item
+	\medskip
+	
+		\begin{tabular}{|c|c|c|c|}
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}  $b$ & $x$ & $A^2$ \\ 
+						
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}  90 & 1 & 2  \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 45 & 1 & 4  \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}  22 & 4& 16 \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 11 &4 &74  \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 5 & 23  & 16 \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 2 & 4 & 74 \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 1 & 4 & 16 \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 0  & 64 & 7 \\ 
+			\hline 
+			\end{tabular} 	
+	
+	\item
+	\medskip
+	$91$ est il premier?
+	On utilise le petit théorème de Fermat.
+	
+	\begin{align}
+		2^{90} \equiv 64 \pmod{91} \notag \\
+		2^{91} \equiv 37 \pmod{91} \notag 
+	\end{align}
+		Ainsi, il existe un entier tel que $a^{91} \neq a \pmod{91}$, donc $91$ n'est pas un nombre premier.
+		
+	\item
+	$2^{10}=1024 \thickapprox 10^3$.
+	$2^90=2^{10^9} \thickapprox 10^{3^9 }\thickapprox10^{27} $.
+	
+	Il y'a environ $27$ chiffres décimaux.
+	
+	\end{enumerate}
+	
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Exponentiation rapide.
+	
+	Soit $b=b_l....b_1b_0$. 
+	
+	\begin{enumerate}
+	\item
+	Exprimer $l$ en fonction de la valeur de $\log b$.
+	
+	$l=\log b$.
+
+	$b$ à une longeur de $l+1$ bits. 
+	
+	\item
+	La ligne 4 de l'algorithme exponentiation consiste à élever la variable $a$ au carré. Cette ligne est exécutée à chaque  tour de l'algorithme, excepté au dernier tour au l'élévation au carrée est inutile. La ligne est donc exécuté $l$ fois.
+	
+	\item
+	La multiplication de la ligne 3, est  des que $b$ est impair, ou encore des qu'un bit de la représentation binaire de $b$ est à 1. Donc si $b$ à $k$ bits à 1, la ligne 3 sera exécutée $k$ fois. 
+	
+	\item
+	La valeur maximale du nombre de multiplication est obtenue avec un nombre $b$ ayant tout ces bits à $1$. Dans ce cas la il y'aura :
+	
+	$V_{max}=2l+1$ multiplications.
+	
+	La valeur moyenne est obtenue en divisant par 2 la valeur maximale et minimale du nombre de multiplication :
+	
+	$V_{moy}=\frac{2l+1+l}{2} =\frac{3l+1}{2}$
+	
+	
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Méthode $\rho$ de Pollard.
+	
+	$N=91$
+	$f(x)=x^2+1 \pmod {91}$
+	
+	\begin{align}
+		x_0 &= 0 \notag \\
+		x_1 &= f(x_0)=0^2+1 \equiv 1 \pmod{91}\notag \\
+		x_2 &= f(x_1)=1^2+1 \equiv 2 \pmod{91}\notag \\
+		x_3 &= f(x_2)=2^2+1 \equiv 5 \pmod{91}\notag \\
+		x_4 &= f(x_3)=5^2+1 \equiv 26 \pmod{91}\notag \\
+		x_5 &= f(x_4)=26^2+1 \equiv 40 \pmod{91}\notag \\
+		x_6 &= f(x_5)=0^2+1 \equiv 54 \pmod{91}\notag \\
+	\end{align}		
+	
+	\begin{align}
+		pgcd(x_1-x_2,91) &= pgcd(1,91)=1 \notag
+	\end{align}	
+%	\PGCD{91}{24}
+	\begin{align}	
+		pgcd(x_2-x_4,91) &= pgcd(24,91)= pgcd(91,24)\notag \\
+		91 &= 24 \times 3 + 19 \notag \\
+		24 &= 19 \times 1 + 5 \notag \\
+		19 &= 5 \times 3 + 4 \notag \\
+		5 &= 4 \times + 1 \notag \\
+		4 &= 4 \times 1 + 0 \notag
+	\end{align}
+		$pgcd(x_2-x_4,91)=1$
+	\begin{align}	
+		pgcd(x_3-x_6,91) &= pgcd(42,91)= pgcd(91,42)\notag \\
+		91 &= 42 \times 2 + 7 \notag \\
+		42 &= 7 \times 6 + 0\notag
+	\end{align}
+		$pgcd(x_3-x_6,91) = 7$
+	Donc $7$ est un diviseur de $91$, $91=7 \times 13$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Algorithme d'Euclide.
+	\begin{enumerate}
+	
+	\item
+	\begin{align}
+		pgcd(91,35) &= pgcd(35,21) \notag \\
+			&= pgcd(21,14) \notag \\
+			&= pgcd(14,7) \notag \\
+			&= pgcd(7,0) \notag \\
+			&=7 \notag
+	\end{align}
+	
+	\item
+	Calculer par l'algorithme d'Euclide étendue l'inverse de 11 modulo 91.
+	
+	\begin{align}
+		91 &= 11 \times 8 + 3 \notag \\
+		11 &= 3 \times 3 + 2 \notag \\
+		3 &= 2 \times 1 + 1 \notag \\
+		2 &= 1 \times 2 + 0 \notag 
+	\end{align}
+	
+	\begin{align}
+		1 &= 3-2 \notag \\
+			&= 3-(11-3 \times 3) \notag \\
+			&= 3 \times 4 - 11 \notag \\
+			&=(91 -11 \times 8)\times 4-11 \notag \\
+			&= 91 \times 4 -11 \times 32-11 \notag \\
+			&= 91 \times 4-11 \times 33 \notag
+	\end{align}
+	
+	Ainsi, $91 \times 4-11\times 33=1$.
+	
+	\begin{align}
+		91 \times 4-11\times 33 &=1 \notag \\
+		11\times 33 &= 91 \times 4-1 \notag \\
+		11 &= \frac{91 \times 4-1}{33} \notag \\
+		11^{-1} &= 91 \times \frac{4}{33}- \notag
+	\end{align}
+	
+	$11^{-1}\equiv -33\pmod{91}\equiv 58\pmod{91}$
+	
+	\item
+	Montrer que $\forall n$, les nombres de Fibonacci $f_n$ et $f_{n+1}$ sont premiers entre eux.
+	
+	$f_0=1 f_1=1 $ et $f_{n+2}=f_{n+1}+f_n$
+	
+	$f_2 $et $f_1$ sont premiers entre eux. On suppose la proposition vrai au rang n, $pgcd(f_{n-1},f_n)=1$.
+	
+	$f_{n+1} = f_n+f_{n-1}\Longleftrightarrow a=bq+r$, avec $q=1$ et $r=f_{n-1}$.
+	
+	Ainsi,
+	\begin{align}
+		pgcd(f_{n+1},f_n)&=pgcd(f_n, f_{n+1} mod f_n) \notag \\
+			&=pgcd(f_n,f_{n-1})\notag \\
+			&= 1\notag
+	\end{align}
+	
+	
+	\end{enumerate}	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice	 Menteurs de MILLER-RABIN pour $N=561$
+	
+	\begin{enumerate}
+	\item
+	Soit $(b_1,b_2,b_3,b_4)=(a^{35},a^{70},a^{140},a^{280}$
+	Un menteur, est un élément qui indique qu'un nombre est premier alors que ce n'est pas le cas. C'est à dire : $b_i\equiv \pm 1\pmod{561}$
+	\item
+		Soit $x^2\equiv -1\pmod{561}$. Montrer que $x^2\equiv 2\pmod {3}$
+		\begin{align}
+			x^2 &= -1 + 561k \notag \\
+			x^2 +1 &= 561k \notag \\
+			x^2+1 &= 187 \times 3k \notag \\
+			x^2 &= -1+187 \times 3k \notag \\
+			x^2 &\equiv -1\pmod{3} \notag \\
+			x^2 &\equiv 2\pmod{3} \notag
+		\end{align}
+		
+		$b_2=b_1^2$, $b_3=b_2^2$ et $b_4=b_3^2$
+		
+		\begin{align}
+			1^2 &\equiv 1 \pmod{3} \notag \\
+			2^2 &\equiv 1 \pmod{3} \notag \\
+			3^2 &\equiv 0 \pmod{3} \notag \\
+			4^2 &\equiv 1 \pmod{3} \notag \\
+			5^2 &\equiv 1 \pmod{3} \notag \\
+			6^2 &\equiv 0 \pmod{3} \notag
+		\end{align}				
+		On suppose, qu'un carré n'est jamais congru à $2\pmod{3}$. $n^2 \neq 2\pmod{3}$.
+		
+		$(n+1)^2=n^2+1^2$, car nous sommes dans l'anneau $\Z/2\Z$.
+		De plus, on sait que $n^2 \neq 2\pmod{3}$ et $1^2 \equiv 1 \pmod{3}$.
+		Donc $(n+1)^2$ n'est pas congru à  $2\pmod{3}$. Ainsi il est impossible que $b_2,b_3,b_4$ soient égal à -1.
+		
+		
+	
+	\item
+	Donner une condition pour que $a^{35}$ soit un menteur.
+	$a$ est un menteur, c'est à dire qu'il permet d'affirmer que $n$ est un nombre premier, si il vérifie la condition suivante :
+	$a^{35}\equiv \pm1 \pmod{561}$.
+	\item
+	$x^{35}=x^5 \times x^{30}=x^5 \times (x^{10})^3$.
+	
+	Or, $\varphi(11)=10$ et $a^{\varphi(11)}\equiv 1 \pmod{11}$.
+	Donc $(x^{10})^3\equiv 1\pmod{11}$ et $x^{35}\equiv x^5 \pmod{11}$.
+	
+	$x^{35}=x^3 \times x^{16}$.
+	
+	Or, $\varphi(17)=16$ et $a^{\varphi(17)}\equiv 1 \pmod{17}$.
+	Donc $(x^{16})^3\equiv 1\pmod{17}$ et $x^{35}\equiv x^3 \pmod{17}$.
+	
+	$x^{35}=x \times x^{2^{17}}$.
+	
+	Or, $\varphi(3)=2$ et $a^{\varphi(3)}\equiv 1 \pmod{3}$.
+	Donc $(x^{2^{17}})\equiv 1\pmod{3}$ et $x^{35}\equiv x \pmod{3}$.
+	
+	$x^{35} \equiv 1 \pmod{561}$ équivaut donc aux trois équations :
+	\begin{center}
+	$x \equiv 1\pmod{3}$, $  x^5\equiv 1 \pmod{11}$ et $x^3\equiv 1 \pmod{17}$
+		\end{center}
+	\item
+	\item
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Nombres de Fibonacci (1)
+
+On considère la suite Fibonacci, décrite par $f_n=f_{n-1}+f_{n-2}$, $f_0=0$, $f_1=1$.
+
+	\begin{enumerate}
+	\item
+		Pour un nombre $n$, sa taille $l$ est égale à $log_2(n)$.
+	\item
+	Montrer que le calcul de $fibo1(n)$ demande $f_{n+1}-1 $ additions.
+	
+	Pour $f_0$, on bien $0$ addition, ce qui correspond bien à : $f_1-1=1-1=0$.
+	Idem pour $f_1$, $f_2-1=1-1=0$.
+	
+	On suppose la proposition vrai au rang $n$. Pour, $fibo1(n)$, $f_n+1-1 $ additions sont nécessaires.
+	
+	On cherche à vérifier la proposition au rang $n+1$.
+	
+	$f_{n+1}=f_n+f_{n-1}$.
+	
+	$fibo1(n+1)=\underbrace{fibo1(n)}_{f_{n+1}-1 additions}\underbrace{+}_{1 addition}\underbrace{fibo1(n-1)}_{f_n-1n additions}$.
+	
+	Nombre d'additions de $fibo1(n+1)= f_{n+1}+f_n-1 +1- 1$
+	
+	
+	Il faut donc : $f_{n+2}+1$ additions pour $f_{n+1}$. La proposition est donc vérifiée au rang n+1.
+	
+	
+	\item
+	
+	
+	\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Nombres de Fibonacci (2)
+
+$F_i=\begin{pmatrix} 
+f_i \\
+f_{i+1} 
+\end{pmatrix}
+\quad$	
+	
+	\begin{enumerate}
+	\item
+		$F_0=\begin{pmatrix} 
+					0 \\
+					1 
+				\end{pmatrix}
+				\quad$	
+		$F_1=\begin{pmatrix} 
+					1 \\
+					1 
+				\end{pmatrix}
+				\quad$
+		$F_2=\begin{pmatrix} 
+					1 \\
+					2 
+				\end{pmatrix}
+				\quad$	
+	\item
+	Si $n=0$ la fonction renvoi $F_0$, sinon on calcul $F_{n-1}$  qui sera renvoyé dans les variables $u$ et $v$. $F_{i+1}$ est calculé à partir de $u$ et $v$. Le vecteur final renvoyé correspond bien à $F_i$.
+	\item
+	La fonction fibo2 est une fonction récursive. Pour un nombre $n$ elle sera exécutée $n$ fois. Une seule addition de 2 entiers est réalisé à chaque  appel de la fonction lors de la dernière instruction $(u+v)$.
+Pour un élément $F_i$ de la suite la dernière addition sera donc $f_i+f_{i-1}$. Si $f_i$ est un nombre de $l$ bits. La dernière addition comportera donc $l$ opérations.
+
+
+	\item
+	
+	\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Nombres de Fibonacci (3)
+	On reprend la suite $F_i$ de l'exercice prédédent.
+	
+	\begin{enumerate}
+	\item
+		Montrer que les vecteurs $F_i$ satisfont la relation suivante :
+		
+		$F_{i+1}=\begin{pmatrix}
+						0 & 1 \\		
+						1 & 1
+						\end{pmatrix}F_i$
+		
+		$F_{i+1}=\begin{pmatrix}
+						0 & 1 \\		
+						1 & 1
+						\end{pmatrix}\times
+						\begin{pmatrix} 
+							f_i \\
+							f_{i+1} 
+						\end{pmatrix}
+					=\begin{pmatrix}
+						0 \times f_i+1 \times f_{i+1}\\		
+						1 \times f_i+1 \times f_{i+1}
+						\end{pmatrix}
+					=\begin{pmatrix}
+						f_{i+1}\\		
+						f_i+f_{i+1}
+						\end{pmatrix}
+					=\begin{pmatrix}
+						f_{i+1}\\		
+						f_{i+2}
+						\end{pmatrix}$
+			
+		La relation est donc vérifiée.			
+	\item
+	Donner un algorithme polynomial de calcul du terme $f_n$ de la suite de Fibonacci.
+	
+	%F_n=
+	\item
+	
+	\end{enumerate}		
+	
+	
+		
+	
+	 \end{document}
+		
