@@ -309,25 +309,33 @@
 	$a$ est un menteur, c'est à dire qu'il permet d'affirmer que $n$ est un nombre premier, si il vérifie la condition suivante :
 	$a^{35}\equiv \pm1 \pmod{561}$.
 	\item
-	$x^{35}=x^5 \times x^{30}=x^5 \times (x^{10})^3$.
+	Montrer que $x^35\equiv 1\pmod(561)$ équivaut aux trois équations :
+	
+	\begin{center}
+	$x \equiv 1\pmod{3}$, $  x^5\equiv 1 \pmod{11}$ et $x^3\equiv 1 \pmod{17}$
+		\end{center}
+	
+	- $x^{35}=x^5 \times x^{30}=x^5 \times (x^{10})^3$.
 	
 	Or, $\varphi(11)=10$ et $a^{\varphi(11)}\equiv 1 \pmod{11}$.
 	Donc $(x^{10})^3\equiv 1\pmod{11}$ et $x^{35}\equiv x^5 \pmod{11}$.
 	
-	$x^{35}=x^3 \times x^{16}$.
+	- $x^{35}=x^3 \times x^{16}$.
 	
 	Or, $\varphi(17)=16$ et $a^{\varphi(17)}\equiv 1 \pmod{17}$.
 	Donc $(x^{16})^3\equiv 1\pmod{17}$ et $x^{35}\equiv x^3 \pmod{17}$.
 	
-	$x^{35}=x \times x^{2^{17}}$.
+	- $x^{35}=x \times x^{2^{17}}$.
 	
 	Or, $\varphi(3)=2$ et $a^{\varphi(3)}\equiv 1 \pmod{3}$.
 	Donc $(x^{2^{17}})\equiv 1\pmod{3}$ et $x^{35}\equiv x \pmod{3}$.
+	\medskip
 	
 	$x^{35} \equiv 1 \pmod{561}$ équivaut donc aux trois équations :
 	\begin{center}
 	$x \equiv 1\pmod{3}$, $  x^5\equiv 1 \pmod{11}$ et $x^3\equiv 1 \pmod{17}$
 		\end{center}
+	\item
 	\item
 	\item
 	\end{enumerate}
@@ -362,7 +370,10 @@ On considère la suite Fibonacci, décrite par $f_n=f_{n-1}+f_{n-2}$, $f_0=0$, $
 	
 	
 	\item
+	$f_n\thickapprox A\varphi^n$ pour des réels $A=\frac{1}{\sqrt{5}}$ et $\varphi=\frac{1+\sqrt{5}}{2}$.
 	
+	$l=log_2(n)\Leftrightarrow n=2^l$.
+	Donc $fn\thickapprox A\varphi^{2^l}$.
 	
 	\end{enumerate}
 
@@ -398,17 +409,22 @@ f_{i+1}
 	Si $n=0$ la fonction renvoi $F_0$, sinon on calcul $F_{n-1}$  qui sera renvoyé dans les variables $u$ et $v$. $F_{i+1}$ est calculé à partir de $u$ et $v$. Le vecteur final renvoyé correspond bien à $F_i$.
 	\item
 	La fonction fibo2 est une fonction récursive. Pour un nombre $n$ elle sera exécutée $n$ fois. Une seule addition de 2 entiers est réalisé à chaque  appel de la fonction lors de la dernière instruction $(u+v)$.
-Pour un élément $F_i$ de la suite la dernière addition sera donc $f_i+f_{i-1}$. Si $f_i$ est un nombre de $l$ bits. La dernière addition comportera donc $l$ opérations.
+
+Pour un élément $F_i$ de la suite, la dernière addition sera donc $f_i+f_{i-1}$. Si $f_i$ est un nombre de $l$ bits. La dernière addition comportera donc $l$ opérations. La complexité de fibo2 est donc égale à la somme de toutes les opérations effectuées, un nombre $f_i$ est codé sur $l $ bits. Pour un nombre $n$,  $l=2^n.$ On peut donc exprimer la complexité de la façon suivante :
+%\overline{log_2(f_i+1)}$. 
+\begin{center}
+	$\sum\limits_{n=1}^{n=l}2^n$ %\overline{log_2(f_i+1)}$
+\end{center}
 
 
 	\item
-	
+	La complexité est donc polynomiale.
 	\end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\exercice Nombres de Fibonacci (3)
-	On reprend la suite $F_i$ de l'exercice prédédent.
+	On reprend la suite $F_i$ de l'exercice précédent.
 	
 	\begin{enumerate}
 	\item
