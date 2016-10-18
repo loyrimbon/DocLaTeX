@@ -90,11 +90,9 @@ JMPUATMFMSHODPFRXPJJTQTGHBXUJ
 
 \begin{tabular}{|c|c|c|}
 	\hline 
-	N & 6 & 4,76	 \\ 
+	LETTRE & Nombre d'apparition & 19,05 \\ 
 	\hline 
 	T & 24 & 19,05 \\ 
-	\hline 
-	J & 8 & 6,35 \\ 
 	\hline 
 	M & 11 & 8,73 \\ 
 	\hline 
@@ -102,58 +100,131 @@ JMPUATMFMSHODPFRXPJJTQTGHBXUJ
 	\hline 
 	U& 11 & 8,73 \\ 
 	\hline 
-	• & • & • \\ 
+	G	&10	&7,93\\ 
 	\hline 
-	• & • & • \\ 
+	X	&9	& 7,14\\ 
 	\hline 
-	• & • & • \\ 
+	H	&8	& 6,35\\ 
 	\hline 
-	• & • & • \\ 
+	J & 8 & 6,35 \\ 
 	\hline 
-	• & • & • \\ 
+	N & 6 & 4,76	 \\ 
 	\hline 
-	• & • & • \\ 
+	Q	&6	& 4,76\\ 
 	\hline 
-	• & • & • \\ 
+	F	&6	& 4,76\\ 
 	\hline 
-	• & • & • \\ 
+	C	&4	& 3,17\\ 
 	\hline 
-	• & • & • \\ 
+	S	&3	& 2,38\\ 
 	\hline 
-	• & • & • \\ 
+	R	&3	& 2,38\\ 
 	\hline 
-	• & • & • \\ 
+	W	&2	& 1,58\\ 
 	\hline 
-	• & • & • \\ 
+	Y	&1	& 0,79\\ 
 	\hline 
-	• & • & • \\ 
+	K	&1	& 0,79\\ 
 	\hline 
+	A	&1	& 0,79\\ 
+	\hline 
+	B	& 1	&0,79\\ 
+	\hline 
+	
 	\end{tabular} 	
 
-G	10	7,93
-X	9	7,14
-Q	6	4,76
-S	3	2,38
-C	4	3,17
-H	8	6,35
-F	6	4,76
-W	2	1,58
-R	3	2,38
-Y	1	0,79
-K	1	0,79
-A	1	0,79
-B	1	0,79
-	
-NTJMPUMGXPQTSTGQPGTXPNCHUMTPUTGFSFTGTHNNGXNCHUMWXOOTRTUMH
- cestuntroudeverdxafar-a—a                       e   e          e                   e     e          e   e                                      e   e  
-PYCTGKTJQTJCHFOOXUJQHGZTUMXPOTJXOTFOQTOHRXUMHZUTWFTGTOPFMNT
-        e     e     e                                 e            e        e        e                        e      e   e            e
-JMPUATMFMSHODPFRXPJJTQTGHBXUJ
-             e                                  e   e
+La lettre T, a une fréquence d'apparition de près de 19\%. On peut logiquement déduire que T représente la lettre e.
 
+Or un chiffrement affine et du type : lettre chiffrée $= a\times i + b \pmod{26}$.
+On à donc une première équation : $19=4a+b \pmod{26}$. 19 et 4 étant respectivement les rangs de T et de e.
+
+D'après les fréquences calculées, il y'a 7 candidats crédibles pour la lettre a : M, P, U, G,X,H et J.
+Le rang de a étant 0, la deuxième équation sera de la forme : rang de la lettre chiffrée = b $\pmod{26}$ et $a=\frac{19-b}{4}$. Ce qui nous donne les différentes possibilités de couple :
+
+\begin{align}
+ M=12 \implies a&=\frac{19-12}{4}=\frac{7}{4}\pmod{26} \\
+ P=15 \implies a&=\frac{19-15}{4}=1\pmod{26}\\
+ U=20 \implies a&=\frac{19-20}{4}=\frac{-1}{4}\pmod{26}\\
+ G=6 \implies a&=\frac{19-6}{4}=\frac{13}{4}\pmod{26}\\
+ X=23 \implies a&=\frac{19-23}{4}=25\pmod{26}\\
+ H=7 \implies a&=\frac{19-7}{4}=3\pmod{26}\\
+ J=9 \implies a&=\frac{19-9}{4}=\frac{10}{4}\pmod{26}
+\end{align}
+
+Après calcul de a, il n'y a plus que 3 possibilités issues des équations (2),(5) et (6), $a \Z$.
+\begin{align}
+a=1,b=15 &\implies (b,p) : i+b \pmod{26} \notag \\
+a=25,b=23 &\implies (z,x):25i+23 \pmod{26} \notag \\
+a=3,b=7 &\implies (d,h) : 3i+7 \pmod{26} \notag 
+\end{align}
+
+Des trois équations restantes, il n y'a que celle du couple (d,h) qui appliquée à la lettre e renvoi la lettre T.
+
+On applique cette équations à toute les lettres de l'alphabet :
+
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	Lettre clair & rang & xi & Lettre chiffrée \\ 
+	\hline
+	a	& 0	& 7	& H\\ 
+	\hline
+	b	& 1	& 10	& K\\ 
+	\hline
+	c	& 2	& 13	& N\\ 
+	\hline
+	d	& 3	& 16	& Q\\ 
+	\hline
+	e	& 4	& 19	& T\\ 
+	\hline
+	f	& 5	& 22	& W\\ 
+	\hline
+	g	& 6	& 25	& Z\\ 
+	\hline
+	h	& 7	& 	2	& C\\ 
+	\hline
+	i	& 8	& 	5	& F\\ 
+	\hline
+	j	& 9	& 	8	& I\\ 
+	\hline
+	k	& 10	& 	11& 	L\\ 
+	\hline
+	l	& 11	& 	14& 	O\\ 
+	\hline
+	m	& 12	& 	17	& R\\ 
+	\hline
+	n	& 13	& 20	& U\\ 
+	\hline
+	o	& 14	& 	23	& X\\ 
+	\hline
+	p	& 15	& 	0	& A\\ 
+	\hline
+	q	& 16	& 	3	& D\\ 
+	\hline
+	r	& 17	& 	6	& G\\ 
+	\hline
+	s	& 18	& 	9	& J\\ 
+	\hline
+	t	& 19	& 	12	& M\\ 
+	\hline
+	u	& 20	& 15	& P\\ 
+	\hline
+	v	& 21	& 	18	& S\\ 
+	\hline
+	w	& 22	& 	21	& V\\ 
+	\hline
+	x	& 23	& 	24	& Y\\ 
+	\hline
+	y	& 24	& 	1	& B\\ 
+	\hline
+	z	& 25	& 	4	& E\\ 
+	\hline
+	\end{tabular} 	
 	
-	
-	
+En appliquant cette alphabet au texte chiffrée on retrouve le texte suivant :
+
+c'est un trou de verdure ou chante une riviere accrochant follement aux herbes des haillons d'argent ou le soleil de la montagne fiere luit c est un petit val qui mousse de rayons.
+         
+
 	\end{enumerate}		
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
