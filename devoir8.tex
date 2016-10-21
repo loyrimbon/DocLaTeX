@@ -1,4 +1,4 @@
-	\documentclass[a4paper,10pt]{article}
+ 	\documentclass[a4paper,10pt]{article}
 	
 	\usepackage[utf8]{inputenc}
 	\usepackage[T1]{fontenc}
@@ -236,8 +236,73 @@ c'est un trou de verdure ou chante une riviere accrochant follement aux herbes d
 	\begin{enumerate}
 	\item
 	Soit $\alpha$ la classe de $X$ dans $A$.Montrer qu $\alpha$ est une unité.
+	$\alpha$ est une racine de $P(X)$, tel que :
+	\begin{align}
+		\alpha^6+\alpha^5+1=0 \notag \\
+		\alpha^6+\alpha^5=1 \notag \\
+		\alpha(\alpha^5+\alpha^4)=1 \notag 
+	\end{align}
+	
+	On obtient une équation de la forme $\alpha\alpha^{-1}=1$ avec $\alpha^{-1}=\alpha^5+\alpha^4$. Donc $\alpha$ est inversible, on peut donc en déduire que $\alpha$ est une unité.
+	
+On cherche à calculer l'ordre d'$\alpha$.
+
+\begin{tabular}{|c|c|}
+	\hline 	
+	$\alpha^1$ & $\alpha^1$\\
+	\hline 	
+	$\alpha^2$ & $\alpha^2$\\
+	\hline 	
+	$\alpha^3$ & $\alpha^3$\\
+	\hline 	
+	$\alpha^4$ & $\alpha^4$\\
+	\hline 	
+	$\alpha^5$ & $\alpha^5$\\
+	\hline 	
+	$\alpha^6$ & $\alpha^5+1 $\\
+	\hline 	
+	$\alpha^7$ & $ \alpha^5+\alpha+1$\\
+	\hline 	
+	$\alpha^8$ &$\alpha^5+\alpha^2+\alpha+1 $ \\
+	\hline 	
+	$\alpha^9$ & $ \alpha^5+\alpha^3+\alpha^2+\alpha+1$\\
+	\hline 	
+	$\alpha^{10}$ & $ \alpha^5+\alpha^4+\alpha^3+\alpha^2+\alpha+1$\\
+	\hline 	
+	$\alpha^{11}$ & $\alpha^4\alpha^5+\alpha^3\alpha^+2+\alpha+1 $\\
+	\hline 	
+	$\alpha^{12}$ & $ \alpha^5+\alpha^4+\alpha^3+\alpha^2+\alpha$\\
+	\hline 	
+	$\alpha^{13}$ & $ \alpha^4+\alpha^3+\alpha+1$\\
+	\hline 	
+	$\alpha^{14}$ & $ \alpha^5+\alpha^4+\alpha^2+\alpha$\\
+	\hline 	
+	$\alpha^{15}$ & $\alpha^3+\alpha^2+1 $\\
+	\hline 	
+	$\alpha^{16}$ & $ \alpha^4+\alpha^3+\alpha$\\
+	\hline 	
+	$\alpha^{17}$ & $ \alpha^5+\alpha^4+\alpha^2$\\
+	\hline 	
+	$\alpha^{18}$ & $\alpha^2+1 $\\
+	\hline 	
+	$\alpha^{19}$ & $ \alpha^3+\alpha$\\
+	\hline 	
+	$\alpha^{20}$ & $ \alpha^4+\alpha^2$\\
+	\hline 	
+	$\alpha^{21}$ & $\alpha^5+\alpha^3 $\\
+	\hline
+\end{tabular}
+
+L'ordre $\alpha$ est un diviseur de l'ordre du groupe multiplicatif. L'anneau $A$ à $2^6$, c'est à dire 64 éléments. Le groupe multiplicatif à donc un ordre de 63. Le seul diviseur de 63 aprés 21 est 63. L'ordre d'$\alpha$ est donc 63.
+
+\begin{center}
+o$(\alpha)=63$
+\end{center}
+
 	\item
+	L'ordre d'$\alpha$ est de 63. Il est donc générateur de tout les éléments du groupe multiplicatif. De plus, $\alpha$ est une unité, il est donc inversible. Les éléments du groupe générés par $\alpha$ sont donc inversible. Ces éléments appartiennent à $A$.Or, un anneau dont tout les éléments non nul sont inversibles est un corps. Donc A est un corps.
 	\item
+	L'ordre d'$\alpha$ est égal à l'ordre du groupe. De plus, $\alpha$ est une racine de $P(X)$, donc $\alpha$ est une racine primitive. Les racines d'un polynôme ont toutes le même ordre. Elles sont donc toutes primitives. Un polynôme primitif est un polynôme dont toutes les racines sont primitives. Ainsi, $P(X)$ est primitif.
 	\item
 	\item
 	\end{enumerate}	
