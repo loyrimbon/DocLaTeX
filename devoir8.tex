@@ -323,7 +323,7 @@ Nombre de polynômes irréductibles de degré 6 dans $F_2[X]$.
 
 $X^{2^6}+X=$produit des polynômes irréductible de degré divisant 6.
 
-$X^{2^6}+X=X(X+1)(X^2+X+1)(X^3+X+1)(X^3+X+1)\times $produits de polynômes irréductible degré 6.
+$X^{2^6}+X=X(X+1)(X^2+X+1)(X^3+X+1)(X^3+X^2+1)\times $produits de polynômes irréductible degré 6.
 
 La somme des degré de tout les polynôme doit être égale à 64. Il y' a donc 9 polynômes irréductible de degré 6 dans $F_2[X]$.
 	\item
@@ -351,13 +351,23 @@ Nombre de polynômes irréductibles primitifs de degré 6 dans $F_2[X]$ = $\frac
 	On choisit $a=2$.
 	
 	\begin{align}
-		2^{340} &\equiv (2^{10})^3 \times 2^4 \pmod{341}\notag \\
-			  &\equiv 1024^3 \times 16 \pmod{341}\notag \\
-			  &\equiv 1^3 \times 16 \pmod{341}\notag \\
-			  &\equiv 16 \pmod{341}\notag
+		2^{340} &\equiv (2^{10})^{34} \pmod{341}\notag \\
+			  &\equiv 1024^{34} \pmod{341}\notag \\
+			  &\equiv 1^{34} \pmod{341}\notag \\
+			  &\equiv 1\pmod{341}\notag
 	\end{align}
 	
-	Ainsi, $2^{340}$ n'est pas congru à $1 \pmod{341}$, $341$ n'est pas premier.
+	Avec $a=2$, 341 ,est pseudo-premier. On choisit à présent a=3.
+	
+	On peut décomposer 340 de la façon suivante : $340 = 2^2\times 5\times 17$ 
+	\begin{align}	
+		3^{17} &\equiv 53 \pmod{341}\notag \\
+			53^5  &\equiv 254 \pmod{341}\notag \\
+			 254^2 &\equiv 67 \pmod{341}\notag \\
+			 67^2 &\equiv 56\pmod{341}\notag
+	\end{align}
+	
+	Ainsi, $3^{340}$ n'est pas congru à $ 1 \pmod{341}$, et n'est donc pas premier.
 	\end{enumerate}
 		
 	 \end{document}
