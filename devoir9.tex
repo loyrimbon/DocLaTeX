@@ -1,0 +1,197 @@
+ 	\documentclass[a4paper,10pt]{article}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[francais]{babel}
+	\usepackage{amsthm}
+	\usepackage{amsmath}
+	\usepackage{graphics}
+	\usepackage{amssymb}
+	\usepackage{color}
+	\usepackage[table,xcdraw]{xcolor}
+	\usepackage{tikz}
+	
+	\usepackage{xlop}
+	\usepackage{ifthen}
+	\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+
+	%\usepackage{mathsfs}
+	
+	%\title{Devoir 1 de Mathématiques}
+	%\author{\textsc{RIMBON} Loy}
+	%\date{\today}
+	
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	\newcounter{exercice}
+	\setcounter{exercice}{0}
+	\newcommand{\exercice}{%
+		\refstepcounter{exercice}%
+		\bigskip
+		\bigskip
+		\noindent\textbf{Exercice \theexercice.}~%
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% styles TikZ pour les blocks
+	\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+	\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+	\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
+	\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
+	\tikzstyle{input}=[coordinate]
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+	%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+	
+	\newcommand{\stagiaire}{Loy RIMBON}
+	\newcommand{\datedevoir}{8 novembre 2016}
+	\newcommand{\titre}{Devoir \no 9}
+	
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\C}{\mathbb{C}}
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\Q}{\mathbb{Q}}
+	\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+	
+	\renewcommand{\leq}{\leqslant}
+	\renewcommand{\geq}{\geqslant}
+	
+	\input{PGCD.tex}
+	
+	\begin{document}
+	%\maketitle
+	
+	\noindent\stagiaire\hfill\datedevoir
+	
+	\bigskip
+	\bigskip
+	\begin{center}
+	{\large\bfseries\titre}
+	\end{center}
+	\bigskip
+	\bigskip
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice 
+	
+	\begin{enumerate}
+	 \item Une lettre est un p-uplet formé à partir des deux symboles . et -. quel est le nombre de "lettres" de longueur inférieur ou égale à p.
+	 
+	 \begin{center}
+	 	 $\displaystyle\sum_{i=1}^p 2^i$
+	 \end{center}
+	
+	 \item Nombre de pièces dans un jeu de domino.
+	 \begin{center}
+		$\displaystyle\sum_{i=7}^1 i = 28$
+	 \end{center}
+	 \item $2n$ personnes prennent place autour d'un table ronde.
+	 \begin{center}
+	 	$2n~!$
+	  \end{center}
+	 De combien de façon peuvent elle s'asseoir :
+	 
+	 Il y' a $n $ hommes et $n $ femmes. De combien de façon peuvent elles s'asseoir en respectant l'alternance.
+	  \begin{center}
+	 	 $2n~!$
+	  \end{center}
+	\end{enumerate}
+	
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice Soit $E$ un ensemble de $n$ personnes (n>2). Chacune d'entre elles envoie une lettre et une seule à une autre personne.
+	
+	\begin{enumerate}
+	\item
+	Chaque personne à $(n-1)$ destination possible, il y'a donc $n(n-1)$ manières différentes d' adressées les $n$ lettres.
+	\item Une personne A est désignée d'avance, on note $N_j$ le nombre de manières de distribuer les $n$ lettres de telle sorte que A reçoive exactement $j $ lettres $(0\leq j \leq n)$. 
+	
+	Nombre de manière d'adresser $j$ lettre à $A$ : 
+		$\left(\begin{array}{c} n-1 \\ j \end{array} \right)$
+		
+	Nombre de manière pour $A$ d'envoyer sa lettre : $(n-1)$
+	
+	Nombre de manière pour les autres (ni $A$, ni les $j$ personnes) d'envoyer une lettre : $(n-j-1)(n-2)$
+	
+	Ainsi, on obtient :
+	\begin{center}
+		$N_j = \left(\begin{array}{c} n-1 \\ j \end{array} \right)(n-j-1)(n-2)(n-1)$
+	 \end{center}
+	\end{enumerate}
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice
+	\begin{enumerate}
+	\item Un joueur tire 12 cartes d'un jeu de 52 cartes. Déterminer le nombre de tirages possible tels que :
+	
+		\begin{enumerate}
+		\item Il y 'ait quatre as : 
+		$\left(\begin{array}{c} 48 \\ 8 \end{array} \right)$
+	
+		\item quatre as tirés successivement : 
+		$\left(\begin{array}{c} 48 \\ 9 \end{array} \right)$
+	
+		\item on obtienne 7 piques et 2 dames : 
+		$\left(\begin{array}{c} 13 \\ 7 \end{array} \right)$
+		$\left(\begin{array}{c} 4 \\ 2 \end{array} \right)$
+		$\left(\begin{array}{c} 35 \\ 3 \end{array} \right)$
+		\end{enumerate}
+	
+	\item Un joueur tire successivement et avec remise 8 cartes d'un jeu de 32 cartes. Déterminer le nombre de tirages possible tels que :
+		\begin{enumerate}
+		\item on obtienne 2piques, 2 coeurs et 4 trèfles
+		
+		$\left(\begin{array}{c} 8 \\ 2 \end{array} \right)$
+		$\left(\begin{array}{c} 8 \\ 2 \end{array} \right)$
+		$\left(\begin{array}{c} 8 \\ 4 \end{array} \right)$
+		
+		\item on obtienne 2 piques et un roi exactement :
+		
+		Deux cas de figure : on tire 2 piques et un roi ou on tire un pique et un roi de pique:
+		
+		$\left(\begin{array}{c} 7 \\ 2 \end{array} \right)$
+		$\left(\begin{array}{c} 3 \\ 1 \end{array} \right)$
+		$\left(\begin{array}{c} 22 \\ 5 \end{array} \right)+$
+		$\left(\begin{array}{c} 7 \\ 1 \end{array} \right)$
+		$\left(\begin{array}{c} 4 \\ 1 \end{array} \right)$
+		$\left(\begin{array}{c} 22 \\ 6 \end{array} \right)$
+		\end{enumerate}
+	\end{enumerate}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\exercice
+	Une urne contient $n$ boules numérotées de 1 à $n$. $n \in \N^*-\{1,2\}$. On tire successivement avec remise $q$ boules de cette urne.On note $x_i$ le numéro de la $i^e$ boule tirée. Déterminer le nombre de tirage tel que :
+		\begin{enumerate}
+		\item $x_i<x_q$ 
+		\begin{center}
+		$\left(\begin{array}{c} n \\ 1 \end{array} \right)$
+		$\left(\begin{array}{c} n-x_1 \\ 1 \end{array} \right)$
+		 \end{center}
+		\item la somme des numéros tirés est égale à $q+2$
+		
+		Un tirage comporte $q$ termes. Pour que la somme des $q$ termes soient égale à $q+2$ il faut que tout les termes soient égale à $1$ et que l'un des termes soient égale à 3 ou deux termes soient égales à 2.
+		
+		Le nombre de tirage est donc obtenue en additionnant les différentes façon de tirer le 3 ou les 2 :
+		\begin{center}
+			$q + \left(\begin{array}{c} q \\ 2 \end{array} \right)$
+		 \end{center}
+		\item deux numéros exactement au cours du tirage :
+		nombre de couple de deux numéros différents  multipliés par le nombre de façon d'effectuer $q$ tirages avec seulement 2 nombres :
+		\begin{center}
+			$n(n-1)2^q $
+		 \end{center}
+		
+		\end{enumerate}
+	 \end{document}
+		
