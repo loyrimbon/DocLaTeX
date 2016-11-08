@@ -92,7 +92,7 @@
 	 \end{center}
 	 \item $2n$ personnes prennent place autour d'un table ronde.
 	 \begin{center}
-	 	$2n~!$
+	 	$2n(2n-1)~!$
 	  \end{center}
 	 De combien de façon peuvent elle s'asseoir :
 	 
@@ -109,7 +109,7 @@
 	
 	\begin{enumerate}
 	\item
-	Chaque personne à $(n-1)$ destination possible, il y'a donc $n(n-1)$ manières différentes d' adressées les $n$ lettres.
+	Chaque personne à $(n-1)$ destination possible, il y'a donc $(n-1)^n$ manières différentes d' adressées les $n$ lettres.
 	\item Une personne A est désignée d'avance, on note $N_j$ le nombre de manières de distribuer les $n$ lettres de telle sorte que A reçoive exactement $j $ lettres $(0\leq j \leq n)$. 
 	
 	Nombre de manière d'adresser $j$ lettre à $A$ : 
@@ -117,11 +117,11 @@
 		
 	Nombre de manière pour $A$ d'envoyer sa lettre : $(n-1)$
 	
-	Nombre de manière pour les autres (ni $A$, ni les $j$ personnes) d'envoyer une lettre : $(n-j-1)(n-2)$
+	Nombre de manière pour les autres (ni $A$, ni les $j$ personnes) d'envoyer une lettre : $(n-2)^{(n-j-1)}$
 	
 	Ainsi, on obtient :
 	\begin{center}
-		$N_j = \left(\begin{array}{c} n-1 \\ j \end{array} \right)(n-j-1)(n-2)(n-1)$
+		$N_j = \left(\begin{array}{c} n-1 \\ j \end{array} \right)(n-2)^{(n-j-1)}(n-1)$
 	 \end{center}
 	\end{enumerate}
 	
@@ -134,22 +134,30 @@
 	\item Un joueur tire 12 cartes d'un jeu de 52 cartes. Déterminer le nombre de tirages possible tels que :
 	
 		\begin{enumerate}
-		\item Il y 'ait quatre as : 
+		\item Il y' ait quatre as : 
 		$\left(\begin{array}{c} 48 \\ 8 \end{array} \right)$
-	
+		$\left(\begin{array}{c} 4 \\ 4 \end{array} \right)$
+		
 		\item quatre as tirés successivement : 
 		$\left(\begin{array}{c} 48 \\ 9 \end{array} \right)$
-	
-		\item on obtienne 7 piques et 2 dames : 
-		$\left(\begin{array}{c} 13 \\ 7 \end{array} \right)$
+		$\left(\begin{array}{c} 4 \\ 3 \end{array} \right)$
+		
+		\item on obtienne 7 piques et 2 dames :  
+		
+		$\left(\begin{array}{c} 12 \\ 7 \end{array} \right)$
 		$\left(\begin{array}{c} 4 \\ 2 \end{array} \right)$
-		$\left(\begin{array}{c} 35 \\ 3 \end{array} \right)$
+		$\left(\begin{array}{c} 36 \\ 3 \end{array} \right)+$
+		$\left(\begin{array}{c} 13 \\ 7 \end{array} \right)$
+		$\left(\begin{array}{c} 3 \\ 1 \end{array} \right)$
+		$\left(\begin{array}{c} 35 \\ 4 \end{array} \right)$
+
 		\end{enumerate}
 	
 	\item Un joueur tire successivement et avec remise 8 cartes d'un jeu de 32 cartes. Déterminer le nombre de tirages possible tels que :
 		\begin{enumerate}
-		\item on obtienne 2piques, 2 coeurs et 4 trèfles
+		\item on obtienne 2 piques, 2 cœurs et 4 trèfles
 		
+		%$\frac{8!}{2!2!4!}$		
 		$\left(\begin{array}{c} 8 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 8 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 8 \\ 4 \end{array} \right)$
@@ -158,9 +166,11 @@
 		
 		Deux cas de figure : on tire 2 piques et un roi ou on tire un pique et un roi de pique:
 		
+		%$\frac{8!}{2!2!4!}$	
 		$\left(\begin{array}{c} 7 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 3 \\ 1 \end{array} \right)$
 		$\left(\begin{array}{c} 22 \\ 5 \end{array} \right)+$
+		%$\frac{8!}{2!2!4!}$	
 		$\left(\begin{array}{c} 7 \\ 1 \end{array} \right)$
 		$\left(\begin{array}{c} 4 \\ 1 \end{array} \right)$
 		$\left(\begin{array}{c} 22 \\ 6 \end{array} \right)$
@@ -189,7 +199,7 @@
 		\item deux numéros exactement au cours du tirage :
 		nombre de couple de deux numéros différents  multipliés par le nombre de façon d'effectuer $q$ tirages avec seulement 2 nombres :
 		\begin{center}
-			$n(n-1)2^q $
+			$\frac{n(n-1)}{2}2^q-2 $
 		 \end{center}
 		
 		\end{enumerate}
