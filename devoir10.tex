@@ -1,0 +1,185 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+%\usepackage{mathsfs}
+
+%\title{Devoir 1 de Mathématiques}
+%\author{\textsc{RIMBON} Loy}
+%\date{\today}
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\newcounter{exercice}
+\setcounter{exercice}{0}
+\newcommand{\exercice}{%
+	\refstepcounter{exercice}%
+	\bigskip
+	\bigskip
+	\noindent\textbf{Exercice \theexercice.}~%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% styles TikZ pour les blocks
+\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
+\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
+\tikzstyle{input}=[coordinate]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+
+\newcommand{\stagiaire}{Loy RIMBON}
+\newcommand{\datedevoir}{30 septembre 2016}
+\newcommand{\titre}{Devoir \no 5}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+
+\begin{document}
+%\maketitle
+
+\noindent\stagiaire\hfill\datedevoir
+
+\bigskip
+\bigskip
+\begin{center}
+{\large\bfseries\titre}
+\end{center}
+\bigskip
+\bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice 
+%QUESTION 1
+\begin{enumerate}
+
+\item
+Le registre 2 correspond au polynôme caractéristique suivant :
+$P(X)=X^3+X^2+1$
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex,line width=.5pt]
+		% définitions de longueurs
+		\newlength{\sephonr}
+		\setlength{\sephonr}{4cm}
+		\newlength{\sepvera}
+		\setlength{\sepvera}{2cm}
+		\newlength{\sepverb}
+		\setlength{\sepverb}{2cm}
+		% placement des blocks
+		\node[input,name=input]{};
+		\node[block,right of=input,node distance=3cm](s0){$0$};
+		\node[block,right of=s0,node distance=\sephonr](s1){$0$};
+		\node[block,right of=s1,node distance=\sephonr](s2){$1$};
+		\node[input,right of=s0,node distance=.5\sephonr](output1){};
+		%\node[sum,above of=output1,node distance=\sepverb](c1){$+$};
+		\node[input,right of=s1,node distance=.5\sephonr](output2){};
+		%\node[sum,above of=output1,node distance=\sepverb](c1){$+$};
+		\node[sum,above of=output2,node distance=\sepverb](c2){$+$};
+		\node[input,right of=s2,node distance=.5\sephonr](output3){};
+		\node[input,above of=output3,node distance=\sepverb](output5){};
+		\node[input,above of=input,node distance=\sepverb](output6){};
+		\node[input,below of=input,node distance=.5\sepverb](output7){};
+		% placement des flêches
+		\draw[draw,->](s1)--(s0);
+		\draw[draw,->](s2)--(s1);
+		% première rangée de flèches verticales
+	%	\draw[draw,->](output1)--(c1);
+		\draw[draw,->](output2)--(c2);
+		% deuxième rangée de flèches verticales
+		\draw[draw](input)--(s0);
+		\draw[draw](input)--(output6);
+		%\draw[draw](output6)--(input);
+		\draw[draw,->](output6)--(c2);
+		%\draw[draw,->](c1)--(c2);
+		\draw[draw,->](output3)--(s2);
+		\draw[draw](output3)--(output5);
+		\draw[draw](c2)--(output5);
+		\draw[draw,<-](output7)--(s0.west);
+	\end{tikzpicture}
+
+
+\item \item
+L'état des registres ainsi que les différentes sorties :
+
+
+\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} \hline
+			\cellcolor[HTML]{EFEFEF}\textbf{Temps}  & \cellcolor[HTML]{EFEFEF}\textbf{sortie} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{0} $} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{1} $} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{2} $} \\ \hline
+			0 &   & 0 & 0 & 1 \\ \hline
+			1 & 0 & 0 & 1 & 1 \\ \hline
+			2 & 0 & 1 & 1 & 1 \\ \hline
+			3 & 1 & 1 & 1 & 0 \\ \hline
+			4 & 1 & 1 & 0 & 1 \\ \hline
+			5 & 1 & 0 & 1 & 0 \\ \hline
+			6 & 0 & 1 & 0 & 0 \\ \hline
+			7 & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		%\caption{My caption}
+		%\label{my-label}
+	\end{table}
+
+\item
+Construire le corps $\frac{\Z}{2\Z}[X]/(X^3+X^2+1)$
+
+$\alpha $ est une racine du polynôme ainsi que $\alpha^2$ et $\alpha^4$.
+$\alpha $ est la racine du polynôme $X$.
+\begin{align}
+	\alpha, \alpha^2, \alpha^3 &= \alpha^2+1 \notag \\
+	\alpha^4 &= \alpha^3+\alpha=\alpha^2+\alpha+1 \notag \\
+	\alpha^5 &= \alpha^3+\alpha^2+\alpha=\alpha+1 \notag \\
+	\alpha^6 &= \alpha^2+\alpha \notag \\
+	\alpha^7 &= 1 \notag
+\end{align}
+
+$P(X)$ est primitif.
+
+\item
+$(s_t)$,$t \in \N$, calculer pour tout $t$, $(s_t)$ en fonction de $\alpha$ et de $t$.
+
+$(s_t)$ est la suite de sortie du registre de polynôme caractéristique $P(X)$.
+
+$\exists a_0, a_1, a_2$ tel que 
+$\forall t \in \N (s_t)=a_0\alpha^t+a_1 \alpha^{2t}+a_1 \alpha^{4t}$
+
+
+\item
+
+\item
+
+
+\item
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{enumerate}
+\end{document}
