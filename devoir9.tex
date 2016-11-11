@@ -92,13 +92,21 @@
 	 \end{center}
 	 \item $2n$ personnes prennent place autour d'un table ronde.
 	 \begin{center}
+<<<<<<< HEAD
 	 	$2n~!$
+=======
+	 	$2n(2n-1)~!$
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 	  \end{center}
 	 De combien de façon peuvent elle s'asseoir :
 	 
 	 Il y' a $n $ hommes et $n $ femmes. De combien de façon peuvent elles s'asseoir en respectant l'alternance.
 	  \begin{center}
+<<<<<<< HEAD
 	 	 $2n~!$
+=======
+	 	 $(n~!)^2$
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 	  \end{center}
 	\end{enumerate}
 	
@@ -109,6 +117,7 @@
 	
 	\begin{enumerate}
 	\item
+<<<<<<< HEAD
 	Chaque personne à $(n-1)$ destination possible, il y'a donc $n(n-1)$ manières différentes d' adressées les $n$ lettres.
 	\item Une personne A est désignée d'avance, on note $N_j$ le nombre de manières de distribuer les $n$ lettres de telle sorte que A reçoive exactement $j $ lettres $(0\leq j \leq n)$. 
 	
@@ -122,6 +131,21 @@
 	Ainsi, on obtient :
 	\begin{center}
 		$N_j = \left(\begin{array}{c} n-1 \\ j \end{array} \right)(n-j-1)(n-2)(n-1)$
+=======
+	Chaque personne à $(n-1)$ destination possible, il y'a donc $(n-1)^n$ manières différentes d' adressées les $n$ lettres.
+	\item Une personne A est désignée d'avance, on note $N_j$ le nombre de manières de distribuer les $n$ lettres de telle sorte que A reçoive exactement $j $ lettres $(0\leq j \leq n)$. 
+	
+	Nombre de manière d'adresser $j$ lettre à $A$ : 
+		$\binom{ n-1}{j}$
+		
+	Nombre de manière pour $A$ d'envoyer sa lettre : $(n-1)$
+	
+	Nombre de manière pour les autres (ni $A$, ni les $j$ personnes) d'envoyer une lettre : $(n-2)^{(n-j-1)}$
+	
+	Ainsi, on obtient :
+	\begin{center}
+		$N_j = \binom{ n-1}{j}(n-2)^{(n-j-1)}(n-1)$
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 	 \end{center}
 	\end{enumerate}
 	
@@ -134,6 +158,7 @@
 	\item Un joueur tire 12 cartes d'un jeu de 52 cartes. Déterminer le nombre de tirages possible tels que :
 	
 		\begin{enumerate}
+<<<<<<< HEAD
 		\item Il y 'ait quatre as : 
 		$\left(\begin{array}{c} 48 \\ 8 \end{array} \right)$
 	
@@ -144,19 +169,210 @@
 		$\left(\begin{array}{c} 13 \\ 7 \end{array} \right)$
 		$\left(\begin{array}{c} 4 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 35 \\ 3 \end{array} \right)$
+=======
+		\item Il y' ait quatre as : 
+		On positionne les 4 as :
+		$\binom{12}{4}$
+		
+		Nombre de façon de tirer quatre as :
+		$\binom{4}{4}$
+		
+		On les place :$4!$
+		
+		
+		Nombre de façon de tirer 8 autres cartes :
+		$\binom{48}{8}$
+		
+		On places les 8 cartes : $8!$ 	
+			
+		\textbf{Résultat :}
+		\begin{center}
+		$\binom{ 12}{4}$
+		$\binom{ 4}{4}$
+		$4!$
+		$\binom{ 48}{8}$
+		$8!$ 
+		\end{center}
+		
+		\medskip
+		
+		\item quatre as tirés successivement : 
+		
+		On positionne le 1er as : 9 possibilités
+		
+		Nombre de façon de tirer quatre as :
+		$\binom{ 4}{4}$
+		
+		Nombre de façon de les disposer :$4!$
+		
+		Nombre de façon de tirer 8 autres cartes :
+		$\binom{48}{8}$
+		
+		On place les cartes : $8!$
+		
+		\newpage
+		
+		\textbf{Résultat :}
+		\begin{center}
+		$9\binom{4}{4}$
+		$4!$
+		$\binom{48}{8}$
+		$8!$
+		\end{center}
+		
+		\item on obtienne 7 piques et 2 dames :  
+		
+		\textbf{1er cas :7 piques et 2 dames}
+		
+		On positionne les 7 piques :$\binom{12}{7}$
+		
+		On les choisit : $\binom{12}{7} $
+		
+		On les places :$7!$
+		
+		On positionnes les 2 dames : 
+		$\binom{5}{2}$
+		
+		On choisit les 2 dames:
+		$\binom{3}{2}$
+		
+		On les places :$2!$
+		
+		On choisit les 3 cartes restante :
+		$\binom{36}{3}$
+		
+		On les places : $3!$
+		
+		
+		\textbf{2ème cas : 6 piques, 2 dames dont 1 dame de pique}
+		
+		On positionne les 6 piques:$\binom{12}{6}$
+		
+		On les choisit :$\binom{12}{6}$
+		
+		On les places :$6!$
+		
+		On positionne la dame de pique : 6 possibilités
+		
+		On la choisit : $\binom{1}{1}$
+		
+		On positionne la dame : 5 possibilités
+		
+		On choisit une dame :$\binom{3}{1}$
+				
+		On choisit les 4 cartes restantes :$\binom{36}{4}$		
+		
+		On les places : $4!$	
+		
+		
+		\textbf{Ce qui nous donne :}
+		
+		$\binom{12}{7}$
+		$\binom{12}{7}$
+		$7!$
+		$\binom{5}{2}$
+		$\binom{3}{2}$
+		$2!$
+		$\binom{36}{3}$
+		$3!+$
+		$\binom{12}{6}$
+		$\binom{12}{6}$
+		$6!$
+		$6$
+		$\binom{1}{1}$
+		$\binom{3}{1}$
+		$\binom{36}{4}$		
+		$4!$	
+		
+		
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 		\end{enumerate}
 	
 	\item Un joueur tire successivement et avec remise 8 cartes d'un jeu de 32 cartes. Déterminer le nombre de tirages possible tels que :
 		\begin{enumerate}
+<<<<<<< HEAD
 		\item on obtienne 2piques, 2 coeurs et 4 trèfles
 		
 		$\left(\begin{array}{c} 8 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 8 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 8 \\ 4 \end{array} \right)$
+=======
+		\item on obtienne 2 piques, 2 cœurs et 4 trèfles
+
+		
+		On choisit la position du pique :
+		$\binom{8}{1}$
+		
+		On choisit le pique :
+		$\binom{8}{1}$
+		
+		On choisit la position du 2ème pique :
+		$\binom{7}{1}$
+		
+		On choisit le 2ème pique :
+		$\binom{8}{1}$
+		
+		On choisit la position du coeur :
+		$\binom{6}{1}$
+		
+		On choisit le coeur :
+		$\binom{8}{1}$
+		
+		On choisit la position du 2ème coeur :
+		$\binom{5}{1}$
+		
+		On choisit le 2ème coeur :
+		$\binom{8}{1}$
+		
+		On choisit la position du 1er trèfle :
+		$\binom{4}{1}$
+		
+		On choisit les 1er trèfles :		
+		$\binom{8}{1}$
+		
+		On choisit la position du 2ème trèfle :
+		$\binom{3}{1}$
+		
+		On choisit les 2ème trèfles :		
+		$\binom{8}{1}$
+		
+		On choisit la position du 3ème trèfle :
+		$\binom{2}{1}$
+		
+		On choisit le 3ème trèfles :		
+		$\binom{8}{1}$
+		
+		On choisit la position du 4ème trèfle :
+		$\binom{1}{1}$
+		
+		On choisit le 4ème trèfles :		
+		$\binom{8}{1}$
+		
+		\textbf{Ce qui nous donne :}
+		
+		$\binom{8}{1}$
+		$\binom{8}{1}$
+		$\binom{7}{1}$
+		$\binom{8}{1}$
+		$\binom{6}{1}$
+		$\binom{8}{1}$
+		$\binom{5}{1}$
+		$\binom{8}{1}$
+		$\binom{4}{1}$
+		$\binom{8}{1}$
+		$\binom{3}{1}$
+		$\binom{8}{1}$
+		$\binom{2}{1}$
+		$\binom{8}{1}$
+		$\binom{1}{1}$
+		$\binom{8}{1}=$
+		$8!8^8$
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 		
 		\item on obtienne 2 piques et un roi exactement :
 		
 		Deux cas de figure : on tire 2 piques et un roi ou on tire un pique et un roi de pique:
+<<<<<<< HEAD
 		
 		$\left(\begin{array}{c} 7 \\ 2 \end{array} \right)$
 		$\left(\begin{array}{c} 3 \\ 1 \end{array} \right)$
@@ -164,6 +380,61 @@
 		$\left(\begin{array}{c} 7 \\ 1 \end{array} \right)$
 		$\left(\begin{array}{c} 4 \\ 1 \end{array} \right)$
 		$\left(\begin{array}{c} 22 \\ 6 \end{array} \right)$
+=======
+		\textbf{1er cas :2 piques et un roi}
+		
+		On choisit la position du 1er pique :$\binom{8}{1}$
+		
+		Nombre de manière de choisir le 1er pique :$\binom{7}{1}$
+		
+		On choisit la position du 2ème pique :$\binom{7}{1}$
+		
+		Nombre de manière de choisit le 1er pique :$\binom{7}{1}$
+		
+		On choisit la position du 3 :$\binom{6}{1}$
+		
+		Nombre de manière de choisir le roi :$\binom{3}{1}$
+		
+		Il reste ensuite 5 cartes à choisir parmi les cœurs, trèfles et carreaux restant 				sans prendre de roi :
+		
+		$\binom{21}{5}\times5\times 4\times 3 \times 2\times1$
+		
+		\textbf{2ème cas : un pique et un roi de pique}
+		
+		On choisit la position du 1er pique :$\binom{8}{1}$
+		
+		Nombre de manière de choisit le 1er pique :$\binom{7}{1}$
+		
+		On choisit la position du roi :$\binom{7}{1}$
+		
+		Nombre de manière de choisir le roi de pique:$\binom{1}{1}$
+		
+		Il reste ensuite 5 cartes à choisir parmi les cœurs, trèfles et carreaux restant 				sans prendre de roi :
+		
+		$\binom{21}{6}\times 6\times 5\times 4\times 3\times 2\times 1$
+		
+		\textbf{Ce qui donne pour résultat :}
+		
+		$\binom{8}{1}$
+		$\binom{7}{1}$
+		$\binom{7}{1}$
+		$\binom{1}{1}$
+		$\binom{21}{6}$		
+		$\binom{8}{1}$
+		$\binom{7}{1}$
+		$\binom{7}{1}$
+		$\binom{7}{1}$
+		$\binom{6}{1}$
+		$\binom{3}{1}$
+		$\binom{21}{5}\times5\times 4\times 3 \times 2\times1+$
+		$\binom{8}{1}$
+		$\binom{7}{1}$
+		$\binom{7}{1}$
+		$\binom{1}{1}$
+		$\binom{21}{6}\times 6\times 5\times 4\times 3\times 2\times 1$
+	
+		
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 		\end{enumerate}
 	\end{enumerate}
 	
@@ -175,8 +446,13 @@
 		\begin{enumerate}
 		\item $x_i<x_q$ 
 		\begin{center}
+<<<<<<< HEAD
 		$\left(\begin{array}{c} n \\ 1 \end{array} \right)$
 		$\left(\begin{array}{c} n-x_1 \\ 1 \end{array} \right)$
+=======
+		$\binom{n}{1}$
+		$\binom{n-x_1}{ 1}$
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 		 \end{center}
 		\item la somme des numéros tirés est égale à $q+2$
 		
@@ -184,12 +460,20 @@
 		
 		Le nombre de tirage est donc obtenue en additionnant les différentes façon de tirer le 3 ou les 2 :
 		\begin{center}
+<<<<<<< HEAD
 			$q + \left(\begin{array}{c} q \\ 2 \end{array} \right)$
+=======
+			$\binom{q}{2}$
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 		 \end{center}
 		\item deux numéros exactement au cours du tirage :
 		nombre de couple de deux numéros différents  multipliés par le nombre de façon d'effectuer $q$ tirages avec seulement 2 nombres :
 		\begin{center}
+<<<<<<< HEAD
 			$n(n-1)2^q $
+=======
+			$\frac{n(n-1)}{2}2^q-2 $
+>>>>>>> aa0a44e0001766c1bd9d8271deaf849dda238c3a
 		 \end{center}
 		
 		\end{enumerate}

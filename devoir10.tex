@@ -1,0 +1,334 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+%\usepackage{mathsfs}
+
+%\title{Devoir 1 de Mathématiques}
+%\author{\textsc{RIMBON} Loy}
+%\date{\today}
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!   Exercices   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!               !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+\newcounter{exercice}
+\setcounter{exercice}{0}
+\newcommand{\exercice}{%
+	\refstepcounter{exercice}%
+	\bigskip
+	\bigskip
+	\noindent\textbf{Exercice \theexercice.}~%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% styles TikZ pour les blocks
+\tikzstyle{block}=[draw,rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+\tikzstyle{emptyblock}=[rectangle,fill=white,inner sep=0mm,minimum size=12mm]
+\tikzstyle{sumg}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=10mm]
+\tikzstyle{sum}=[draw,circle,node distance=1cm,inner sep=0mm,minimum size=6mm]
+\tikzstyle{input}=[coordinate]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!   Vos commandes personnelles   !!!!!!!!!!!!!!!!!!!
+%!!!!!!!!!!!!!!!!!!!                                !!!!!!!!!!!!!!!!!!!
+
+\newcommand{\stagiaire}{CNE Loy RIMBON}
+\newcommand{\datedevoir}{15 novembre 2016}
+\newcommand{\titre}{Devoir \no 10}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\LCI}{$E\times E\longrightarrow E$ ~}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+
+\begin{document}
+%\maketitle
+
+\noindent\stagiaire\hfill\datedevoir
+
+\bigskip
+\bigskip
+\begin{center}
+{\large\bfseries\titre}
+\end{center}
+\bigskip
+\bigskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\exercice 
+%QUESTION 1
+\begin{enumerate}
+
+\item
+Le registre 2 correspond au polynôme caractéristique suivant :
+$P(X)=X^3+X^2+1$
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex,line width=.5pt]
+		% définitions de longueurs
+		\newlength{\sephonr}
+		\setlength{\sephonr}{4cm}
+		\newlength{\sepvera}
+		\setlength{\sepvera}{2cm}
+		\newlength{\sepverb}
+		\setlength{\sepverb}{2cm}
+		% placement des blocks
+		\node[input,name=input]{};
+		\node[block,right of=input,node distance=3cm](s0){$0$};
+		\node[block,right of=s0,node distance=\sephonr](s1){$0$};
+		\node[block,right of=s1,node distance=\sephonr](s2){$1$};
+		\node[input,right of=s0,node distance=.5\sephonr](output1){};
+		%\node[sum,above of=output1,node distance=\sepverb](c1){$+$};
+		\node[input,right of=s1,node distance=.5\sephonr](output2){};
+		%\node[sum,above of=output1,node distance=\sepverb](c1){$+$};
+		\node[sum,above of=output2,node distance=\sepverb](c2){$+$};
+		\node[input,right of=s2,node distance=.5\sephonr](output3){};
+		\node[input,above of=output3,node distance=\sepverb](output5){};
+		\node[input,above of=input,node distance=\sepverb](output6){};
+		\node[input,below of=input,node distance=.5\sepverb](output7){};
+		% placement des flêches
+		\draw[draw,->](s1)--(s0);
+		\draw[draw,->](s2)--(s1);
+		% première rangée de flèches verticales
+	%	\draw[draw,->](output1)--(c1);
+		\draw[draw,->](output2)--(c2);
+		% deuxième rangée de flèches verticales
+		\draw[draw](input)--(s0);
+		\draw[draw](input)--(output6);
+		%\draw[draw](output6)--(input);
+		\draw[draw,->](output6)--(c2);
+		%\draw[draw,->](c1)--(c2);
+		\draw[draw,->](output3)--(s2);
+		\draw[draw](output3)--(output5);
+		\draw[draw](c2)--(output5);
+		\draw[draw,<-](output7)--(s0.west);
+	\end{tikzpicture}
+
+
+\item \item
+L'état des registres ainsi que les différentes sorties :
+
+
+\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\rowcolor[HTML]{EFEFEF} \hline
+			\cellcolor[HTML]{EFEFEF}\textbf{Temps}  & \cellcolor[HTML]{EFEFEF}\textbf{sortie} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{0} $} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{1} $} & \cellcolor[HTML]{EFEFEF}\textbf{$ S_{2} $} \\ \hline
+			0 &   & 0 & 0 & 1 \\ \hline
+			1 & 0 & 0 & 1 & 1 \\ \hline
+			2 & 0 & 1 & 1 & 1 \\ \hline
+			3 & 1 & 1 & 1 & 0 \\ \hline
+			4 & 1 & 1 & 0 & 1 \\ \hline
+			5 & 1 & 0 & 1 & 0 \\ \hline
+			6 & 0 & 1 & 0 & 0 \\ \hline
+			7 & 1 & 0 & 0 & 1 \\ \hline
+		\end{tabular}
+		%\caption{My caption}
+		%\label{my-label}
+	\end{table}
+
+\item
+Construire le corps $\frac{\Z}{2\Z}[X]/(X^3+X^2+1)$
+
+$\alpha $ est une racine du polynôme ainsi que $\alpha^2$ et $\alpha^4$.
+$\alpha $ est la racine du polynôme $X$.
+\begin{align}
+	\alpha, \alpha^2, \alpha^3 &= \alpha^2+1 \notag \\
+	\alpha^4 &= \alpha^3+\alpha=\alpha^2+\alpha+1 \notag \\
+	\alpha^5 &= \alpha^3+\alpha^2+\alpha=\alpha+1 \notag \\
+	\alpha^6 &= \alpha^2+\alpha \notag \\
+	\alpha^7 &= 1 \notag
+\end{align}
+
+
+Le corps généré$\frac{\Z}{2\Z}[X]/(X^3+X^2+1)$ est un corps à 8 éléments. $\alpha $ est une racine du polynôme irréductible $P(X)$. $\alpha$ est générateur de tout les éléments du groupe multiplicatif,  $\alpha$ est donc une racine primitive est $P(X)$ est un polynôme irréductible et primitif.
+
+\item
+Calculer pour tout $t$, $(s_t)$ en fonction de $\alpha$ et de $t$.
+
+$(s_t)$ ,$t \in \N$,désigne la suite de sortie du registre de polynôme caractéristique $P(X)$.
+
+$\exists a_0, a_1, a_2$ tel que 
+$\forall t \in \N (s_t)=a_0\alpha^t+a_1 \alpha^{2t}+a_1 \alpha^{4t}$
+
+On résout le système d'équation obtenu à l'aide de la méthode du pivot de Gauss.
+
+\begin{align}
+	s_0 &= 0 = a+b+c \notag \\
+	s_1 &= 0 = a\alpha + b \alpha^2 +c \alpha^4 \notag \\
+	s_2 &= 1 = a \alpha^2+b \alpha^4 + c \alpha^8 \notag 
+\end{align}
+
+\[
+	\left\{
+	\begin{aligned}	
+		a+b+c &= 0\notag \\
+	a\alpha + b \alpha^2 +c \alpha^4 &= 0  (L_2\longleftarrow \alpha^6L_2 )\notag \\
+	a\alpha^2+b \alpha^4 + c \alpha^8 &= 1(L_3\longleftarrow \alpha^5L_3 )\notag 
+		\end{aligned}	
+	\right.\]
+	
+\[
+	\left\{
+	\begin{aligned}	
+		a+b+c &= 0\notag \\
+	a + b \alpha^2 +c \alpha^4 &= 0  (L_2\longleftarrow L_2+L_1 )\notag \\
+	a+b \alpha^2 + c \alpha^6 &= \alpha^5(L_3\longleftarrow L_3+L_1 )\notag 
+		\end{aligned}	
+	\right.\]
+	
+\[
+	\left\{
+	\begin{aligned}	
+		a+b+c &= 0\notag \\
+	b \alpha^5 +c \alpha^2 &= 0  \notag \\
+	b \alpha^3 + c \alpha^4 &= \alpha^5(L_3\longleftarrow \alpha^2L_3 )\notag 
+		\end{aligned}	
+	\right.\]
+	
+\[
+	\left\{
+	\begin{aligned}	
+		a+b+c &= 0\notag \\
+	b \alpha^5 +c \alpha^2 &= 0  \notag \\
+	b \alpha^5 + c \alpha^6 &= \alpha^7(L_3\longleftarrow \ L_3+L_2 )\notag 
+		\end{aligned}	
+	\right.\]	
+	
+\[
+	\left\{
+	\begin{aligned}	
+		a+b+c &= 0\notag \\
+	b \alpha^5 +c \alpha^2 &= 0  \notag \\
+	c \alpha^2 &= 1 \implies c=\alpha^6 \notag 
+		\end{aligned}	
+	\right.\]		
+	
+	\[
+	\left\{
+	\begin{aligned}	
+	b \alpha^5 +\alpha^8 &= 0  \notag \\
+	b \alpha^5 &= \alpha \implies b= \alpha^3 \notag \\
+	a+ \alpha^3 +\alpha^6 &=1 \implies a = \alpha^5 \notag 
+		\end{aligned}	
+	\right.\]		
+	
+Ainsi, 
+\begin{align}
+s_t= \alpha^5 \alpha^t + \alpha^3 \alpha^{2t} + \alpha^6 \alpha^{4t} \notag
+\end{align}
+\item
+Calculer pour tout entier naturel t, $U_t$ le produit des 3 bits présents dans le registre à un moment donné, en fonction de $\alpha$ et de $t$.
+
+\begin{align}
+	U_t &= (\alpha^5 \alpha^t + \alpha^3 \alpha^2t + \alpha^6 \alpha^4t)(\alpha^6 \alpha^t + \alpha^5 \alpha^2t + \alpha^3 \alpha^4t)(\alpha^t + \alpha^2t + \alpha^4t) \notag \\
+	&= (\alpha^4 \alpha^{2t} + \alpha^{3t} + \alpha \alpha^{4t} + \alpha^5t + \alpha^6t)(\alpha^t + \alpha^{2t}+ \alpha^{4t} \notag \\
+	&= \alpha^2\alpha^{2t}+\alpha^5 \alpha^{3t} + \alpha^6 \alpha^{4t} + \alpha^4 \alpha^{5t} + \alpha^2 \alpha^{6t} + \alpha^{7t} + \alpha^5 \alpha^{8t} + \alpha^{9t} + \alpha^{10t} \notag \\
+	&=1+ \alpha^5\alpha^t+\alpha^3\alpha^{2t}+\alpha^6\alpha^{4t}+\alpha^4\alpha^{5t}+\alpha^2\alpha^{6t} \notag
+\end{align}
+\item
+La suite $U_t$ est généré par le polynôme caractéristique P, produit des $(X+ \beta)$. Les $\beta$ sont les différentes puissances de $\alpha$ présente dans le développement de $U_t$.
+
+\begin{align}
+	P(X) &= (X+1)(X+\alpha)(X+\alpha^2)(X+\alpha^3)(X+\alpha^4)(X+\alpha^5)(X+\alpha^6) \notag \\
+	&=(X+1)(X^6+X^5+X^4+X^3+X^2+X+1) \notag \\
+	&=(X^7+X^6+X^5+X^4+X^3+X^3+X^2+X+X^6+X^5+X^4+X^3+X^3+X^2+X+1)\notag \\
+	&= X^7+1 \notag
+\end{align}
+
+On en déduite le registre correspondant, que l'on initialise avec le produit des sorties $s_0$, $s_1$ et $s_2$.
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex,line width=.5pt]
+		% définitions de longueurs
+		\setlength{\sephonr}{1.8cm}
+		\setlength{\sepvera}{2cm}
+		\setlength{\sepverb}{2cm}
+		% placement des blocks
+		\node[input,name=input]{};
+		\node[block,right of=input,node distance=3cm](s0){$0$};
+		\node[block,right of=s0,node distance=\sephonr](s1){$0$};
+		\node[block,right of=s1,node distance=\sephonr](s2){$1$};
+		\node[block,right of=s2,node distance=\sephonr](s3){$0$};		
+		\node[block,right of=s3,node distance=\sephonr](s4){$0$};
+		\node[block,right of=s4,node distance=\sephonr](s5){$0$};
+		\node[block,right of=s5,node distance=\sephonr](s6){$0$};
+		\node[input,right of=s6,node distance=.5\sephonr](output1){};
+		%\node[sum,above of=output1,node distance=\sepverb](c1){$+$};
+		\node[input,right of=s1,node distance=.5\sephonr](output2){};
+		%\node[sum,above of=output1,node distance=\sepverb](c1){$+$};
+	%	\node[sum,above of=output2,node distance=\sepverb](c2){$+$};
+		\node[input,right of=s6,node distance=.5\sephonr](output3){};
+		\node[input,above of=output3,node distance=\sepverb](output5){};
+		\node[input,above of=input,node distance=\sepverb](output6){};
+		\node[input,below of=input,node distance=.5\sepverb](output7){};
+		% placement des flêches
+		\draw[draw,->](s1)--(s0);
+		\draw[draw,->](s2)--(s1);
+		\draw[draw,->](s3)--(s2);
+		\draw[draw,->](s4)--(s3);
+		\draw[draw,->](s5)--(s4);
+		\draw[draw,->](s6)--(s5);
+		\draw[draw,->](output3)--(s6);
+		% première rangée de flèches verticales
+	%	\draw[draw,->](output1)--(c1);
+		%\draw[draw,->](output2)--(c2);
+		% deuxième rangée de flèches verticales
+		\draw[draw](input)--(s0);
+		\draw[draw](input)--(output6);
+		%\draw[draw](output6)--(input);
+		\draw[draw,->](output6)--(output5);
+		%\draw[draw,->](c1)--(c2);
+	%	\draw[draw,->](output3)--(s6);
+		\draw[draw](output3)--(output5);
+		\draw[draw](c2)--(output5);
+		\draw[draw,<-](output7)--(s0.west);
+	\end{tikzpicture}
+
+\newpage
+\item
+En faisant tourner le registrer on obtient le tableau ci-dessous.
+\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			 \hline
+			\textbf{Temps} & \textbf{$ S_0 $ }&\textbf{$ S_1 $} & \textbf{$ S_{2} $} & \textbf{$ S_{3} $}&\textbf{$ S_{4} $}&\textbf{$ S_{5} $}&\textbf{$ S_{6} $}\\ \hline
+			0 &  \textbf{0} & 0& 1 & 0 & 0 & 0 & 0 \\ \hline
+			1 &  \textbf{0} & 1& 1 & 0 & 0 & 0 & 0 \\ \hline
+			2 &  \textbf{1} & 0& 0 & 0 & 0 & 0 & 0 \\ \hline
+			3 &  \textbf{0} & 0& 0 & 0 & 0 & 0 & 1 \\ \hline
+			4 &  \textbf{0} & 0& 0 & 0 & 0 & 1 & 0 \\ \hline
+			5 &  \textbf{0} & 0& 0 & 0 & 1 & 0 & 0 \\ \hline
+			6 &  \textbf{0} & 0& 0 & 1 & 0 & 0 & 0 \\ \hline
+			7 & 0 & 0& 1 & 0 & 0 & 0 & 0 \\ \hline
+		\end{tabular}
+		%\caption{My caption}
+		%\label{my-label}
+	\end{table}
+
+On s'aperçoit que les sorties $s_0$ de $t_0$ à $t_6$ correspondent bien aux sorties générés par $U_t$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{enumerate}
+\end{document}
